@@ -21,12 +21,13 @@
   padding-top: 3%;
 }
 #homeTitle{
-  margin: 2% 0 3% 0;
+  margin: 2% 0 2% 0;
   text-align: center;
 }
 #categories{
   display: grid;
   align-items: center;
+  padding: 0;
 }
 .row{
   height: 100%;
@@ -41,25 +42,20 @@
   height: 100%;
   border: 2px solid black;
 }
+.card:hover{
+  transform: scale(1.1);
+}
 .card-header{
-  background-color: #e46e0d;
+  padding: 0.5%;
+  background-color: #d1650d;
   color: #fff;
 }
 .card-body{
   border-top: 2px solid black;
-  padding: 3%;
+  padding: 3% 0 3% 0;
 }
 .card-image{
-  height: 100%;
   width: 100%;
-}
-.card-body button{
   margin: auto;
-  width: 50%;
-  font-size: 120%;
-  border: 2px solid black;
-}
-.card-body button:hover{
-  transform: scale(1.1);
-  border: 2px solid black;
+  height: 250px;
 }
