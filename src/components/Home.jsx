@@ -4,12 +4,15 @@ import sushi from '../media/sushiImg.png'
 import cake from '../media/cakeImg.png'
 import iceCream from '../media/iceCreamImg.png'
 import drink from '../media/drinkImg.png'
-function Home(){
+function Home({changeContent}){
+    function switchContent(event){
+        changeContent(event.currentTarget.id);
+    }
     return(
       <>
         <section id="categories" className="container">
             <div className="row">
-                <div className="categories-column col-sm-12 col-md-6 col-lg-4">
+                <div id='pizzaCard' className="categories-column col-sm-12 col-md-6 col-lg-4" onClick={switchContent}>
                     <div className="card">
                         <div className="card-header">
                             <h3>Pizza</h3>
