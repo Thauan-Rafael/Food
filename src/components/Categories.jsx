@@ -1,0 +1,24 @@
+import React from 'react'
+import Pizza from './Pizza'
+import Hamburger from './Hamburger'
+function Categories(props){
+    const {setTotal, setContent} = props;
+    return(
+        <div id='categoriesSelect' className="container btn-group" role="group">
+            <button type="button" className="categoriesOptions btn btn-warning" onClick={openCategory}>{props.btn1}</button>
+            <button type="button" className="categoriesOptions btn btn-warning" onClick={openCategory}>{props.btn2}</button>
+            <button type="button" className="categoriesOptions btn btn-warning" onClick={openCategory}>{props.btn3}</button>
+            <button type="button" className="categoriesOptions btn btn-warning" onClick={openCategory}>{props.btn4}</button>
+            <button type="button" className="categoriesOptions btn btn-warning" onClick={openCategory}>{props.btn5}</button>
+        </div>
+     )
+     function openCategory(event){
+        if(event.target.textContent == 'Pizza'){
+            setContent(<Pizza sum={props.sum} setTotal={setTotal} setContent={setContent}/>)
+        }
+        if(event.target.textContent == 'Hamburger'){
+            setContent(<Hamburger sum={props.sum} setTotal={setTotal} setContent={setContent}/>)
+        }
+     }
+}
+export default Categories;

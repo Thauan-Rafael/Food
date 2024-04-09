@@ -2,7 +2,9 @@ import React from 'react'
 import pepperoni from '../media/pizzas/pepperoniImg.png'
 import margherita from '../media/pizzas/margheritaImg.png'
 import cheese from '../media/pizzas/cheeseImg.png'
-function Pizza({sum,total,setTotal}){
+import Categories from '../components/Categories.jsx'
+
+function Pizza({sum,setTotal,setContent}){
     function changeValue(event){
         switch (event.target.name) {
             case 'pepperoni':
@@ -48,66 +50,40 @@ function Pizza({sum,total,setTotal}){
     }
     return(
         <>
-            <div id='pizzaCards' className='container'>
-                <div className="card">
-                    <div className="card-body">
-                        <img className="card-image" src={pepperoni}></img>
-                    </div>
-                    <div className="card-footer">
-                        <h3 id='pepperoniPizza'>Pepperoni</h3>
-                        <div className='buyPizza'>
-                            <div className="btn-group" role="group">
-                                <input type="radio" className="btn-check" name="pepperoni" id="pepperoniP" autoComplete="off" onClick={changeValue} value={10.00}/>
-                                <label className="btn btn-outline-primary" htmlFor="pepperoniP">Small</label>
-                                <input type="radio" className="btn-check" name="pepperoni" id="pepperoniM" autoComplete="off" onClick={changeValue} value={13.00}/>
-                                <label className="btn btn-outline-primary" htmlFor="pepperoniM">Medium</label>
-                                <input type="radio" className="btn-check" name="pepperoni" id="pepperoniG" autoComplete="off" onClick={changeValue} value={16.00}/>
-                                <label className="btn btn-outline-primary" htmlFor="pepperoniG">Large</label>
-                            </div>
-                            <button id='addPepperoni' className='btn btn-warning' onClick={addTotal}>Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="card-body">
-                        <img className="card-image" src={margherita}></img>
-                    </div>
-                    <div className="card-footer">
-                        <h3 id='margheritaPizza'>Margherita</h3>
-                        <div className='buyPizza'>
-                            <div className="btn-group" role="group">
-                                <input type="radio" className="btn-check" name="margherita" id="margheritaP" autoComplete="off" onClick={changeValue} value={9.00}/>
-                                <label className="btn btn-outline-primary" htmlFor="margheritaP">Small</label>
-                                <input type="radio" className="btn-check" name="margherita" id="margheritaM" autoComplete="off" onClick={changeValue} value={12.00}/>
-                                <label className="btn btn-outline-primary" htmlFor="margheritaM">Medium</label>
-                                <input type="radio" className="btn-check" name="margherita" id="margheritaG" autoComplete="off" onClick={changeValue} value={14.00}/>
-                                <label className="btn btn-outline-primary" htmlFor="margheritaG">Large</label>
-                            </div>
-                            <button id='addMargherita' className='btn btn-warning' onClick={addTotal}>Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="card-body">
-                        <img className="card-image" src={cheese}></img>
-                    </div>
-                    <div className="card-footer">
-                        <h3 id='cheesePizza'>Cheese</h3>
-                        <div className='buyPizza'>
-                            <div className="btn-group" role="group">
-                                <input type="radio" className="btn-check" name="cheese" id="cheeseP" autoComplete="off" onClick={changeValue} value={8.50}/>
-                                <label className="btn btn-outline-primary" htmlFor="cheeseP">Small</label>
-                                <input type="radio" className="btn-check" name="cheese" id="cheeseM" autoComplete="off" onClick={changeValue} value={11.50}/>
-                                <label className="btn btn-outline-primary" htmlFor="cheeseM">Medium</label>
-                                <input type="radio" className="btn-check" name="cheese" id="cheeseG" autoComplete="off" onClick={changeValue} value={14.50}/>
-                                <label className="btn btn-outline-primary" htmlFor="cheeseG">Large</label>
-                            </div>
-                            <button id='addCheese' className='btn btn-warning' onClick={addTotal}>Add to Cart</button>
-                        </div>
-                    </div>
+            <div className='itemPage'>
+                <Categories btn1='Hamburger' btn2='Japanese Food' btn3='Cakes' btn4='Ice Cream' btn5='Drinks' sum={sum} setTotal={setTotal} setContent={setContent}/>
+                <div id='pizzaCards' className='pizzaOptions container'>
+                    <PizzaCard name='Pepperoni' img={pepperoni} price={10.00}/>
+                    <PizzaCard name='Margherita' img={margherita} price={9.00}/>
+                    <PizzaCard name='Cheese' img={cheese} price={8.50}/>
                 </div>
             </div>
         </>
     )
+    
+    function PizzaCard(props){
+        let taste = props.name.toLowerCase()
+        return(
+            <div className="card">
+                <div className="card-body">
+                    <img className="card-image" src={props.img}></img>
+                </div>
+                <div className="card-footer">
+                    <h3 id={taste+'Pizza'}>{props.name}</h3>
+                    <div className='buyItem'>
+                        <div className="btn-group" role="group">
+                            <input type="radio" className="btn-check" name={taste} id={taste+'P'} autoComplete="off" onClick={changeValue} value={props.price}/>
+                            <label className="btn btn-outline-primary" htmlFor={taste+'P'}>Small</label>
+                            <input type="radio" className="btn-check" name={taste} id={taste+'M'} autoComplete="off" onClick={changeValue} value={props.price+3}/>
+                            <label className="btn btn-outline-primary" htmlFor={taste+'M'}>Medium</label>
+                            <input type="radio" className="btn-check" name={taste} id={taste+'G'} autoComplete="off" onClick={changeValue} value={props.price+6}/>
+                            <label className="btn btn-outline-primary" htmlFor={taste+'G'}>Large</label>
+                        </div>
+                        <button id={'add'+props.name} className='btn btn-warning' onClick={addTotal}>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        )
+    }
 }
 export default Pizza;

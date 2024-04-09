@@ -1,9 +1,10 @@
 import React from 'react'
-function Header({total}){
+import Home from './Home'
+function Header({total,setContent, changeContent}){
     return(
         <nav className="navbar" id='header'>
             <div className="container-fluid">
-            <a className="navbar-brand" href="#">
+            <a className="navbar-brand" onClick={openHome}>
                 <i className="fa-solid fa-utensils"></i>
                 <i className="fa-solid fa-face-laugh-beam"></i>
                 <i>TR DEV FOODS</i>
@@ -17,5 +18,8 @@ function Header({total}){
             </div>
         </nav>
     )
+    function openHome(){
+        setContent(<Home changeContent={changeContent}/>)
+    }
 }
 export default Header;

@@ -56,32 +56,48 @@
   margin: auto;
   height: 200px;
 }
-#pizzaCards{
+.itemPage{
+  display: grid;
+  grid-template-rows: 1fr 9fr;
+}
+#categoriesSelect{
+  display: flex;
+  gap: 1%;
+}
+#categoriesSelect .btn{
+  border-radius: 10vw;
+  border: 2px solid black;
+  color: #fff;
+  font-size: 1.5vw;
+}
+.pizzaOptions, .hamburgerOptions{
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 3%;
   padding: 0;
 }
-#pizzaCards .card {
-  height: 80%;
+.pizzaOptions .card, .hamburgerOptions .card {
+  height: 90%;
   border: 2px solid black;
+  display: grid;
+  grid-template-rows: 2.5fr 1fr;
 }
-#pizzaCards .card-body{
+.pizzaOptions .card-body, .hamburgerOptions .card-body{
   padding: 0;
 }
-#pizzaCards .card-image{
+.pizzaOptions .card-image, .hamburgerOptions .card-image{
   height: 100%;
 }
-#pizzaCards .card-footer{
+.pizzaOptions .card-footer, .hamburgerOptions .card-footer{
   border-top: 2px solid black;
   text-align: center;
 }
-.buyPizza{
+.buyItem{
   display: grid;
   gap: 1%;
   grid-template-columns: 1fr 1fr;
 }
-.buyPizza .btn {
+.buyItem .btn {
   border-radius: 10vw;
 }
