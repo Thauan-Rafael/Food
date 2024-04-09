@@ -17,7 +17,7 @@ function Home({changeContent}){
                         <div className="card-header">
                             <h3>Pizza</h3>
                         </div>
-                        <div className="card-body d-grid">
+                        <div className="card-body">
                             <img className="card-image" src={pizza}></img>
                         </div>
                     </div>
@@ -27,7 +27,7 @@ function Home({changeContent}){
                         <div className="card-header">
                             <h3>Hamburger</h3>
                         </div>
-                        <div className="card-body d-grid">
+                        <div className="card-body">
                             <img className="card-image" src={hamburger}></img>
                         </div>
                     </div>
@@ -37,7 +37,7 @@ function Home({changeContent}){
                         <div className="card-header">
                             <h3>Japanese Food</h3>
                         </div>
-                        <div className="card-body d-grid">
+                        <div className="card-body">
                             <img className="card-image" src={sushi}></img>
                         </div>
                     </div>
@@ -47,7 +47,7 @@ function Home({changeContent}){
                         <div className="card-header">
                             <h3>Cakes</h3>
                         </div>
-                        <div className="card-body d-grid">
+                        <div className="card-body">
                             <img className="card-image" src={cake}></img>
                         </div>
                     </div>
@@ -57,7 +57,7 @@ function Home({changeContent}){
                         <div className="card-header">
                             <h3>Ice Cream</h3>
                         </div>
-                        <div className="card-body d-grid">
+                        <div className="card-body">
                             <img className="card-image" src={iceCream}></img>
                         </div>
                     </div>
@@ -67,7 +67,7 @@ function Home({changeContent}){
                         <div className="card-header">
                             <h3>Drinks</h3>
                         </div>
-                        <div className="card-body d-grid">
+                        <div className="card-body">
                             <img className="card-image" src={drink}></img>
                         </div>
                     </div>

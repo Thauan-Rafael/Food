@@ -1,4 +1,5 @@
-function Header(){
+import React from 'react'
+function Header({total}){
     return(
         <nav className="navbar" id='header'>
             <div className="container-fluid">
@@ -10,7 +11,7 @@ function Header(){
                 <i className="fa-solid fa-utensils"></i>
             </a>
             <a className='navbar-brand' href='#'>
-                <i>R$ 00,00</i>
+                <i id='totalPrice'>${total}</i>
                 <i className="fa-solid fa-cart-shopping"></i>
             </a>
             </div>

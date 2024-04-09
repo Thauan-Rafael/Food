@@ -40,14 +40,14 @@
   text-align: center;
   margin-bottom: 2%;
 }
-.card{
+.categories-column .card{
   height: 275px;
   border: 2px solid black;
 }
-.card:hover{
+.categories-column .card:hover{
   transform: scale(1.1);
 }
-.card-body{
+.categories-column .card-body{
   border-top: 2px solid black;
   padding: 3% 0 3% 0;
 }
@@ -55,4 +55,33 @@
   width: 100%;
   margin: auto;
   height: 200px;
+}
+#pizzaCards{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3%;
+  padding: 0;
+}
+#pizzaCards .card {
+  height: 80%;
+  border: 2px solid black;
+}
+#pizzaCards .card-body{
+  padding: 0;
+}
+#pizzaCards .card-image{
+  height: 100%;
+}
+#pizzaCards .card-footer{
+  border-top: 2px solid black;
+  text-align: center;
+}
+.buyPizza{
+  display: grid;
+  gap: 1%;
+  grid-template-columns: 1fr 1fr;
+}
+.buyPizza .btn {
+  border-radius: 10vw;
 }
