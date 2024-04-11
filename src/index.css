@@ -19,6 +19,9 @@
   display: flex;
   gap: 3%;
 }
+.navbar-brand:hover{
+  cursor: pointer;
+}
 .fa-cart-shopping{
   padding-top: 3%;
 }
@@ -70,26 +73,26 @@
   color: #fff;
   font-size: 1.5vw;
 }
-.pizzaOptions, .hamburgerOptions{
+.itemOptions{
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 3%;
   padding: 0;
 }
-.pizzaOptions .card, .hamburgerOptions .card {
+.itemOptions .card{
   height: 90%;
   border: 2px solid black;
   display: grid;
   grid-template-rows: 2.5fr 1fr;
 }
-.pizzaOptions .card-body, .hamburgerOptions .card-body{
+.itemOptions .card-body{
   padding: 0;
 }
-.pizzaOptions .card-image, .hamburgerOptions .card-image{
+.itemOptions .card-image{
   height: 100%;
 }
-.pizzaOptions .card-footer, .hamburgerOptions .card-footer{
+.itemOptions .card-footer{
   border-top: 2px solid black;
   text-align: center;
 }
@@ -100,4 +103,7 @@
 }
 .buyItem .btn {
   border-radius: 10vw;
+}
+.cartBtn:hover, .sizes:hover, #categoriesSelect button:hover{
+  transform: scale(1.1);
 }

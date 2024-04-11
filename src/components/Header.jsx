@@ -4,7 +4,7 @@ function Header({total,setContent, changeContent}){
     return(
         <nav className="navbar" id='header'>
             <div className="container-fluid">
-            <a className="navbar-brand" onClick={openHome}>
+            <a id='title' className="navbar-brand" onClick={openHome}>
                 <i className="fa-solid fa-utensils"></i>
                 <i className="fa-solid fa-face-laugh-beam"></i>
                 <i>TR DEV FOODS</i>

@@ -1,20 +1,20 @@
 import React from 'react'
-import pepperoni from '../media/pizzas/pepperoniImg.png'
-import margherita from '../media/pizzas/margheritaImg.png'
-import cheese from '../media/pizzas/cheeseImg.png'
+import sushi from '../media/japaneseFoods/sushiImg.png'
+import yakisoba from '../media/japaneseFoods/yakisobaImg.png'
+import gyoza from '../media/japaneseFoods/gyozaImg.png'
 import Categories from '../components/Categories.jsx'
 
-function Pizza({sum,setTotal,setContent}){
+function Japanese({sum,setTotal,setContent}){
     function changeValue(event){
         switch (event.target.name) {
-            case 'pepperoni':
-                document.getElementById('pepperoniPizza').textContent = 'Pepperoni '+'- $'+event.target.value;
+            case 'sushi':
+                document.getElementById('sushi').textContent = 'sushi '+'- $'+event.target.value;
                 break;
-            case 'margherita':
-                document.getElementById('margheritaPizza').textContent = 'Margherita '+'- $'+event.target.value
+            case 'yakisoba':
+                document.getElementById('yakisoba').textContent = 'yakisoba '+'- $'+event.target.value
                 break;
-            case 'cheese':
-                document.getElementById('cheesePizza').textContent = 'Cheese '+'- $'+event.target.value
+            case 'gyoza':
+                document.getElementById('gyoza').textContent = 'gyoza '+'- $'+event.target.value
                 break;
             default:
                 break;
@@ -23,24 +23,24 @@ function Pizza({sum,setTotal,setContent}){
     function addTotal(event){
         let itemPrice = ''
         switch (event.target.id) {
-            case 'addPepperoni':
-                itemPrice = document.getElementById('pepperoniPizza').textContent;
+            case 'addSushi':
+                itemPrice = document.getElementById('sushi').textContent;
                 if(itemPrice.includes('$')){
                     sum = sum + parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1))
                     setTotal(sum)
                 }
                 else{alert('Empty')}
                 break;
-            case 'addMargherita':
-                itemPrice = document.getElementById('margheritaPizza').textContent;
+            case 'addYakisoba':
+                itemPrice = document.getElementById('yakisoba').textContent;
                 if(itemPrice.includes('$')){
                     sum = sum + parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1))
                     setTotal(sum)
                 }
                 else{alert('Empty')}
                 break;
-            case 'addCheese':
-                let itemPrice = document.getElementById('cheesePizza').textContent;
+            case 'addGyoza':
+                itemPrice = document.getElementById('gyoza').textContent;
                 if(itemPrice.includes('$')){
                     sum = sum + parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1))
                     setTotal(sum)
@@ -55,17 +55,17 @@ function Pizza({sum,setTotal,setContent}){
     return(
         <>
             <div className='itemPage'>
-                <Categories btn1='Hamburger' btn2='Japanese Food' btn3='Cakes' btn4='Ice Cream' btn5='Drinks' sum={sum} setTotal={setTotal} setContent={setContent}/>
-                <div id='pizzaCards' className='itemOptions container'>
-                    <PizzaCard name='Pepperoni' img={pepperoni} price={10.00}/>
-                    <PizzaCard name='Margherita' img={margherita} price={9.00}/>
-                    <PizzaCard name='Cheese' img={cheese} price={8.50}/>
+                <Categories btn1='Pizza' btn2='Hamburger' btn3='Cakes' btn4='Ice Cream' btn5='Drinks' sum={sum} setTotal={setTotal} setContent={setContent}/>
+                <div id='japaneseCards' className='itemOptions container'>
+                    <JapaneseCard name='Sushi' img={sushi} price={10.00}/>
+                    <JapaneseCard name='Yakisoba' img={yakisoba} price={9.00}/>
+                    <JapaneseCard name='Gyoza' img={gyoza} price={8.50}/>
                 </div>
             </div>
         </>
     )
     
-    function PizzaCard(props){
+    function JapaneseCard(props){
         let taste = props.name.toLowerCase()
         return(
             <div className="card">
@@ -73,7 +73,7 @@ function Pizza({sum,setTotal,setContent}){
                     <img className="card-image" src={props.img}></img>
                 </div>
                 <div className="card-footer">
-                    <h3 id={taste+'Pizza'}>{props.name}</h3>
+                    <h3 id={taste}>{props.name}</h3>
                     <div className='buyItem'>
                         <div className="sizes btn-group" role="group">
                             <input type="radio" className="btn-check" name={taste} id={taste+'P'} autoComplete="off" onClick={changeValue} value={props.price}/>
@@ -90,4 +90,4 @@ function Pizza({sum,setTotal,setContent}){
         )
     }
 }
-export default Pizza;
+export default Japanese;

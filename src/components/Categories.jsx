@@ -1,6 +1,8 @@
 import React from 'react'
 import Pizza from './Pizza'
 import Hamburger from './Hamburger'
+import Japanese from './Japanese'
+import Cake from './Cakes'
 function Categories(props){
     const {setTotal, setContent} = props;
     return(
@@ -16,8 +18,14 @@ function Categories(props){
         if(event.target.textContent == 'Pizza'){
             setContent(<Pizza sum={props.sum} setTotal={setTotal} setContent={setContent}/>)
         }
-        if(event.target.textContent == 'Hamburger'){
+        else if(event.target.textContent == 'Hamburger'){
             setContent(<Hamburger sum={props.sum} setTotal={setTotal} setContent={setContent}/>)
+        }
+        else if(event.target.textContent == 'Japanese Food'){
+            setContent(<Japanese sum={props.sum} setTotal={setTotal} setContent={setContent}/>)
+        }
+        else if(event.target.textContent == 'Cakes'){
+            setContent(<Cake sum={props.sum} setTotal={setTotal} setContent={setContent}/>)
         }
      }
 }
