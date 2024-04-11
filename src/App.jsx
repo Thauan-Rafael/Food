@@ -6,6 +6,7 @@ import Pizza from './components/Pizza.jsx'
 import Hamburger from './components/Hamburger.jsx'
 import Japanese from './components/Japanese.jsx'
 import Cake from './components/Cakes.jsx'
+import Cream from './components/Creams.jsx'
 function App() {
   let sum = 0;
   const [total, setTotal] = React.useState('0.00')
@@ -22,6 +23,9 @@ function App() {
       }
       else if(value == 'cakeCard'){
         setContent(<Cake sum={sum} setTotal={setTotal} setContent={setContent}/>);
+      }
+      else if(value == 'iceCreamCard'){
+        setContent(<Cream sum={sum} setTotal={setTotal} setContent={setContent}/>);
       }
   }
   return (

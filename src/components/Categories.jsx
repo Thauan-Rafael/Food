@@ -3,6 +3,7 @@ import Pizza from './Pizza'
 import Hamburger from './Hamburger'
 import Japanese from './Japanese'
 import Cake from './Cakes'
+import Cream from './Creams'
 function Categories(props){
     const {setTotal, setContent} = props;
     return(
@@ -26,6 +27,9 @@ function Categories(props){
         }
         else if(event.target.textContent == 'Cakes'){
             setContent(<Cake sum={props.sum} setTotal={setTotal} setContent={setContent}/>)
+        }
+        else if(event.target.textContent == 'Ice Cream'){
+            setContent(<Cream sum={props.sum} setTotal={setTotal} setContent={setContent}/>)
         }
      }
 }
