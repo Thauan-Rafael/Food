@@ -12,25 +12,29 @@ function App() {
   let sum = 0;
   const [total, setTotal] = React.useState('0.00')
   const [content, setContent] = React.useState(<Home changeContent={changeContent}/>);
+  function updateSum(amount){
+    sum = sum + amount;
+    setTotal(sum)
+  }
   function changeContent(value) {
       switch (value) {
         case 'pizzaCard':
-          setContent(<Pizza sum={sum} setTotal={setTotal} setContent={setContent}/>);
+          setContent(<Pizza sum={sum} setTotal={setTotal} setContent={setContent} updateSum={updateSum}/>);
           break;
       case 'hamburgerCard':
-          setContent(<Hamburger sum={sum} setTotal={setTotal} setContent={setContent}/>);
+          setContent(<Hamburger sum={sum} setTotal={setTotal} setContent={setContent} updateSum={updateSum}/>);
           break;
       case 'japaneseCard':
-          setContent(<Japanese sum={sum} setTotal={setTotal} setContent={setContent}/>);
+          setContent(<Japanese sum={sum} setTotal={setTotal} setContent={setContent} updateSum={updateSum}/>);
           break;
       case 'cakeCard':
-          setContent(<Cake sum={sum} setTotal={setTotal} setContent={setContent}/>);
+          setContent(<Cake sum={sum} setTotal={setTotal} setContent={setContent} updateSum={updateSum}/>);
           break;
     case 'iceCreamCard':
-          setContent(<Cream sum={sum} setTotal={setTotal} setContent={setContent}/>);
+          setContent(<Cream sum={sum} setTotal={setTotal} setContent={setContent} updateSum={updateSum}/>);
           break;
     case 'drinkCard':
-          setContent(<Drinks sum={sum} setTotal={setTotal} setContent={setContent}/>);
+          setContent(<Drinks sum={sum} setTotal={setTotal} setContent={setContent} updateSum={updateSum}/>);
           break;
         default:
           break;

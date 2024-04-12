@@ -18,22 +18,22 @@ function Categories(props){
      )
      function openCategory(event){
         if(event.target.textContent == 'Pizza'){
-            setContent(<Pizza sum={props.sum} setTotal={setTotal} setContent={setContent}/>)
+            setContent(<Pizza sum={props.sum} setTotal={setTotal} setContent={setContent} updateSum={props.updateSum}/>)
         }
         else if(event.target.textContent == 'Hamburger'){
-            setContent(<Hamburger sum={props.sum} setTotal={setTotal} setContent={setContent}/>)
+            setContent(<Hamburger sum={props.sum} setTotal={setTotal} setContent={setContent} updateSum={props.updateSum}/>)
         }
         else if(event.target.textContent == 'Japanese Food'){
-            setContent(<Japanese sum={props.sum} setTotal={setTotal} setContent={setContent}/>)
+            setContent(<Japanese sum={props.sum} setTotal={setTotal} setContent={setContent} updateSum={props.updateSum}/>)
         }
         else if(event.target.textContent == 'Cakes'){
-            setContent(<Cake sum={props.sum} setTotal={setTotal} setContent={setContent}/>)
+            setContent(<Cake sum={props.sum} setTotal={setTotal} setContent={setContent} updateSum={props.updateSum}/>)
         }
         else if(event.target.textContent == 'Ice Cream'){
-            setContent(<Cream sum={props.sum} setTotal={setTotal} setContent={setContent}/>)
+            setContent(<Cream sum={props.sum} setTotal={setTotal} setContent={setContent} updateSum={props.updateSum}/>)
         }
         else if(event.target.textContent == 'Drinks'){
-            setContent(<Drinks sum={props.sum} setTotal={setTotal} setContent={setContent}/>)
+            setContent(<Drinks sum={props.sum} setTotal={setTotal} setContent={setContent} updateSum={props.updateSum}/>)
         }
      }
 }

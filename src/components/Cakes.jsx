@@ -4,7 +4,7 @@ import strawberry from '../media/cakes/strawberryImg.png'
 import lemon from '../media/cakes/lemonImg.png'
 import Categories from '../components/Categories.jsx'
 
-function Cake({sum,setTotal,setContent}){
+function Cake({sum,updateSum,setTotal,setContent}){
     function changeValue(event){
         switch (event.target.name) {
             case 'chocolate':
@@ -26,24 +26,21 @@ function Cake({sum,setTotal,setContent}){
             case 'addChocolate':
                 itemPrice = document.getElementById('chocolateCake').textContent;
                 if(itemPrice.includes('$')){
-                    sum = sum + parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1))
-                    setTotal(sum)
+                    updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
                 break;
             case 'addStrawberry':
                 itemPrice = document.getElementById('strawberryCake').textContent;
                 if(itemPrice.includes('$')){
-                    sum = sum + parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1))
-                    setTotal(sum)
+                    updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
                 break;
             case 'addLemon':
                 itemPrice = document.getElementById('lemonCake').textContent;
                 if(itemPrice.includes('$')){
-                    sum = sum + parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1))
-                    setTotal(sum)
+                    updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
                 break;
@@ -55,7 +52,7 @@ function Cake({sum,setTotal,setContent}){
     return(
         <>
             <div className='itemPage'>
-                <Categories btn1='Pizza' btn2='Hamburger' btn3='Japanese Food' btn4='Ice Cream' btn5='Drinks' sum={sum} setTotal={setTotal} setContent={setContent}/>
+                <Categories btn1='Pizza' btn2='Hamburger' btn3='Japanese Food' btn4='Ice Cream' btn5='Drinks' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent}/>
                 <div id='cakeCards' className='itemOptions container'>
                     <CakeCard name='Chocolate' img={chocolate} price={10.00}/>
                     <CakeCard name='Strawberry' img={strawberry} price={9.00}/>
