@@ -4,7 +4,7 @@ import kiwi from '../media/drinks/kiwiImg.png'
 import banana from '../media/drinks/bananaImg.png'
 import Categories from '../components/Categories.jsx'
 
-function Drinks({sum,updateSum,setTotal,setContent}){
+function Drinks({sum,updateSum,setTotal,setContent,itemName,itemValue}){
     function changeValue(event){
         switch (event.target.name) {
             case 'strawberry':
@@ -26,6 +26,8 @@ function Drinks({sum,updateSum,setTotal,setContent}){
             case 'addStrawberry':
                 itemPrice = document.getElementById('strawberryDrink').textContent;
                 if(itemPrice.includes('$')){
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
@@ -33,6 +35,8 @@ function Drinks({sum,updateSum,setTotal,setContent}){
             case 'addKiwi':
                 itemPrice = document.getElementById('kiwiDrink').textContent;
                 if(itemPrice.includes('$')){
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
@@ -40,6 +44,8 @@ function Drinks({sum,updateSum,setTotal,setContent}){
             case 'addBanana':
                 let itemPrice = document.getElementById('bananaDrink').textContent;
                 if(itemPrice.includes('$')){
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
@@ -52,7 +58,7 @@ function Drinks({sum,updateSum,setTotal,setContent}){
     return(
         <>
             <div className='itemPage'>
-                <Categories btn1='Pizza' btn2='Hamburger' btn3='Japanese Food' btn4='Cakes' btn5='Ice Cream' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent}/>
+                <Categories btn1='Pizza' btn2='Hamburger' btn3='Japanese Food' btn4='Cakes' btn5='Ice Cream' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} itemName={itemName} itemValue={itemValue}/>
                 <div id='drinkCards' className='itemOptions container'>
                     <DrinksCard name='Strawberry' img={strawberry} price={10.00}/>
                     <DrinksCard name='Kiwi' img={kiwi} price={9.00}/>

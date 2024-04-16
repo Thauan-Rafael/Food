@@ -18,22 +18,22 @@ function Categories(props){
      )
      function openCategory(event){
         if(event.target.textContent == 'Pizza'){
-            setContent(<Pizza sum={props.sum} setTotal={setTotal} setContent={setContent} updateSum={props.updateSum}/>)
+            setContent(<Pizza sum={props.sum} setTotal={setTotal} setContent={setContent} updateSum={props.updateSum} itemName={props.itemName} itemValue={props.itemValue}/>)
         }
         else if(event.target.textContent == 'Hamburger'){
-            setContent(<Hamburger sum={props.sum} setTotal={setTotal} setContent={setContent} updateSum={props.updateSum}/>)
+            setContent(<Hamburger sum={props.sum} setTotal={setTotal} setContent={setContent} updateSum={props.updateSum} itemName={props.itemName} itemValue={props.itemValue}/>)
         }
         else if(event.target.textContent == 'Japanese Food'){
-            setContent(<Japanese sum={props.sum} setTotal={setTotal} setContent={setContent} updateSum={props.updateSum}/>)
+            setContent(<Japanese sum={props.sum} setTotal={setTotal} setContent={setContent} updateSum={props.updateSum} itemName={props.itemName} itemValue={props.itemValue}/>)
         }
         else if(event.target.textContent == 'Cakes'){
-            setContent(<Cake sum={props.sum} setTotal={setTotal} setContent={setContent} updateSum={props.updateSum}/>)
+            setContent(<Cake sum={props.sum} setTotal={setTotal} setContent={setContent} updateSum={props.updateSum} itemName={props.itemName} itemValue={props.itemValue}/>)
         }
         else if(event.target.textContent == 'Ice Cream'){
-            setContent(<Cream sum={props.sum} setTotal={setTotal} setContent={setContent} updateSum={props.updateSum}/>)
+            setContent(<Cream sum={props.sum} setTotal={setTotal} setContent={setContent} updateSum={props.updateSum} itemName={props.itemName} itemValue={props.itemValue}/>)
         }
         else if(event.target.textContent == 'Drinks'){
-            setContent(<Drinks sum={props.sum} setTotal={setTotal} setContent={setContent} updateSum={props.updateSum}/>)
+            setContent(<Drinks sum={props.sum} setTotal={setTotal} setContent={setContent} updateSum={props.updateSum} itemName={props.itemName} itemValue={props.itemValue}/>)
         }
      }
 }

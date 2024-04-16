@@ -1,6 +1,7 @@
 import React from 'react'
 import Home from './Home'
-function Header({total,setContent, changeContent}){
+import Cart from './Cart'
+function Header(props){
     return(
         <nav className="navbar" id='header'>
             <div className="container-fluid">
@@ -11,15 +12,20 @@ function Header({total,setContent, changeContent}){
                 <i className="fa-solid fa-face-laugh-beam"></i>
                 <i className="fa-solid fa-utensils"></i>
             </a>
-            <a className='navbar-brand' href='#'>
-                <i id='totalPrice'>${total}</i>
+            <a className='navbar-brand' onClick={openCart}>
+                <i id='totalPrice'>${props.total}</i>
                 <i className="fa-solid fa-cart-shopping"></i>
             </a>
             </div>
         </nav>
     )
     function openHome(){
-        setContent(<Home changeContent={changeContent}/>)
+        let itemPrice = document.getElementById('totalPrice').textContent;        
+        props.updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+        props.setContent(<Home changeContent={props.changeContent}/>)
+    }
+    function openCart(){
+        props.setContent(<Cart itemName={props.itemName} itemValue={props.itemValue}/>)
     }
 }
 export default Header;

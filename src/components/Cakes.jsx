@@ -4,7 +4,7 @@ import strawberry from '../media/cakes/strawberryImg.png'
 import lemon from '../media/cakes/lemonImg.png'
 import Categories from '../components/Categories.jsx'
 
-function Cake({sum,updateSum,setTotal,setContent}){
+function Cake({sum,updateSum,setTotal,setContent,itemName,itemValue}){
     function changeValue(event){
         switch (event.target.name) {
             case 'chocolate':
@@ -26,6 +26,8 @@ function Cake({sum,updateSum,setTotal,setContent}){
             case 'addChocolate':
                 itemPrice = document.getElementById('chocolateCake').textContent;
                 if(itemPrice.includes('$')){
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
@@ -33,6 +35,8 @@ function Cake({sum,updateSum,setTotal,setContent}){
             case 'addStrawberry':
                 itemPrice = document.getElementById('strawberryCake').textContent;
                 if(itemPrice.includes('$')){
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
@@ -40,6 +44,8 @@ function Cake({sum,updateSum,setTotal,setContent}){
             case 'addLemon':
                 itemPrice = document.getElementById('lemonCake').textContent;
                 if(itemPrice.includes('$')){
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
@@ -52,7 +58,7 @@ function Cake({sum,updateSum,setTotal,setContent}){
     return(
         <>
             <div className='itemPage'>
-                <Categories btn1='Pizza' btn2='Hamburger' btn3='Japanese Food' btn4='Ice Cream' btn5='Drinks' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent}/>
+                <Categories btn1='Pizza' btn2='Hamburger' btn3='Japanese Food' btn4='Ice Cream' btn5='Drinks' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} itemName={itemName} itemValue={itemValue}/>
                 <div id='cakeCards' className='itemOptions container'>
                     <CakeCard name='Chocolate' img={chocolate} price={10.00}/>
                     <CakeCard name='Strawberry' img={strawberry} price={9.00}/>

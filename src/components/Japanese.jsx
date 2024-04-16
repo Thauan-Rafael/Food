@@ -4,7 +4,7 @@ import yakisoba from '../media/japaneseFoods/yakisobaImg.png'
 import gyoza from '../media/japaneseFoods/gyozaImg.png'
 import Categories from '../components/Categories.jsx'
 
-function Japanese({sum,updateSum,setTotal,setContent}){
+function Japanese({sum,updateSum,setTotal,setContent,itemName,itemValue}){
     function changeValue(event){
         switch (event.target.name) {
             case 'sushi':
@@ -26,6 +26,8 @@ function Japanese({sum,updateSum,setTotal,setContent}){
             case 'addSushi':
                 itemPrice = document.getElementById('sushi').textContent;
                 if(itemPrice.includes('$')){
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
@@ -33,6 +35,8 @@ function Japanese({sum,updateSum,setTotal,setContent}){
             case 'addYakisoba':
                 itemPrice = document.getElementById('yakisoba').textContent;
                 if(itemPrice.includes('$')){
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
@@ -40,6 +44,8 @@ function Japanese({sum,updateSum,setTotal,setContent}){
             case 'addGyoza':
                 itemPrice = document.getElementById('gyoza').textContent;
                 if(itemPrice.includes('$')){
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
@@ -52,7 +58,7 @@ function Japanese({sum,updateSum,setTotal,setContent}){
     return(
         <>
             <div className='itemPage'>
-                <Categories btn1='Pizza' btn2='Hamburger' btn3='Cakes' btn4='Ice Cream' btn5='Drinks' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent}/>
+                <Categories btn1='Pizza' btn2='Hamburger' btn3='Cakes' btn4='Ice Cream' btn5='Drinks' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} itemName={itemName} itemValue={itemValue}/>
                 <div id='japaneseCards' className='itemOptions container'>
                     <JapaneseCard name='Sushi' img={sushi} price={10.00}/>
                     <JapaneseCard name='Yakisoba' img={yakisoba} price={9.00}/>

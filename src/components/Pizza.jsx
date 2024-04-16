@@ -4,7 +4,7 @@ import margherita from '../media/pizzas/margheritaImg.png'
 import cheese from '../media/pizzas/cheeseImg.png'
 import Categories from '../components/Categories.jsx'
 
-function Pizza({sum,updateSum,setTotal,setContent}){
+function Pizza({sum,updateSum,setTotal,setContent,itemName,itemValue}){
     function changeValue(event){
         switch (event.target.name) {
             case 'pepperoni':
@@ -26,6 +26,8 @@ function Pizza({sum,updateSum,setTotal,setContent}){
             case 'addPepperoni':
                 itemPrice = document.getElementById('pepperoniPizza').textContent;
                 if(itemPrice.includes('$')){
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
@@ -33,6 +35,8 @@ function Pizza({sum,updateSum,setTotal,setContent}){
             case 'addMargherita':
                 itemPrice = document.getElementById('margheritaPizza').textContent;
                 if(itemPrice.includes('$')){
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
@@ -40,6 +44,8 @@ function Pizza({sum,updateSum,setTotal,setContent}){
             case 'addCheese':
                 let itemPrice = document.getElementById('cheesePizza').textContent;
                 if(itemPrice.includes('$')){
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
@@ -52,7 +58,7 @@ function Pizza({sum,updateSum,setTotal,setContent}){
     return(
         <>
             <div className='itemPage'>
-                <Categories btn1='Hamburger' btn2='Japanese Food' btn3='Cakes' btn4='Ice Cream' btn5='Drinks' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent}/>
+                <Categories btn1='Hamburger' btn2='Japanese Food' btn3='Cakes' btn4='Ice Cream' btn5='Drinks' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} itemName={itemName} itemValue={itemValue}/>
                 <div id='pizzaCards' className='itemOptions container'>
                     <PizzaCard name='Pepperoni' img={pepperoni} price={10.00}/>
                     <PizzaCard name='Margherita' img={margherita} price={9.00}/>

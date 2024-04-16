@@ -107,3 +107,24 @@
 .cartBtn:hover, .sizes:hover, #categoriesSelect button:hover{
   transform: scale(1.1);
 }
+.cartList{
+  display: grid;
+  padding: 2.5%;
+  gap: 1.5%;
+  margin: auto;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10vh;
+}
+.cartList h1{
+  text-align: center;
+}
+.cartList ul{
+  display: grid;
+  align-items: center;
+  text-align: left;
+}
+.cartList button{
+  width: 30%;
+  margin: auto;
+}
