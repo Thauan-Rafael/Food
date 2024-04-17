@@ -125,6 +125,12 @@
   text-align: left;
 }
 .cartList button{
-  width: 30%;
-  margin: auto;
+  font-size: 3vh;
+  border-radius: 20vh;
+  width: 15%;
+  margin: 2% auto auto auto;
+}
+#confirmButton, #closeButton{
+  background-color: #e46e0d;
+  border-color: #e46e0d;
 }

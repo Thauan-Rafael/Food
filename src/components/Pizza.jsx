@@ -26,7 +26,8 @@ function Pizza({sum,updateSum,setTotal,setContent,itemName,itemValue}){
             case 'addPepperoni':
                 itemPrice = document.getElementById('pepperoniPizza').textContent;
                 if(itemPrice.includes('$')){
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="pepperoni"]:checked').id}"]`).textContent
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Pizza(${itemSize})`)
                     itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
@@ -35,7 +36,8 @@ function Pizza({sum,updateSum,setTotal,setContent,itemName,itemValue}){
             case 'addMargherita':
                 itemPrice = document.getElementById('margheritaPizza').textContent;
                 if(itemPrice.includes('$')){
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="margherita"]:checked').id}"]`).textContent
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Pizza(${itemSize})`)
                     itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
@@ -44,7 +46,8 @@ function Pizza({sum,updateSum,setTotal,setContent,itemName,itemValue}){
             case 'addCheese':
                 let itemPrice = document.getElementById('cheesePizza').textContent;
                 if(itemPrice.includes('$')){
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="cheese"]:checked').id}"]`).textContent
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Pizza(${itemSize})`)
                     itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }

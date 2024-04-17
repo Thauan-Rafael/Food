@@ -26,7 +26,8 @@ function Drinks({sum,updateSum,setTotal,setContent,itemName,itemValue}){
             case 'addStrawberry':
                 itemPrice = document.getElementById('strawberryDrink').textContent;
                 if(itemPrice.includes('$')){
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="strawberry"]:checked').id}"]`).textContent
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Drink(${itemSize})`)
                     itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
@@ -35,7 +36,8 @@ function Drinks({sum,updateSum,setTotal,setContent,itemName,itemValue}){
             case 'addKiwi':
                 itemPrice = document.getElementById('kiwiDrink').textContent;
                 if(itemPrice.includes('$')){
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="kiwi"]:checked').id}"]`).textContent
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Drink(${itemSize})`)
                     itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
@@ -44,7 +46,8 @@ function Drinks({sum,updateSum,setTotal,setContent,itemName,itemValue}){
             case 'addBanana':
                 let itemPrice = document.getElementById('bananaDrink').textContent;
                 if(itemPrice.includes('$')){
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="banana"]:checked').id}"]`).textContent
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Drink(${itemSize})`)
                     itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
@@ -60,9 +63,9 @@ function Drinks({sum,updateSum,setTotal,setContent,itemName,itemValue}){
             <div className='itemPage'>
                 <Categories btn1='Pizza' btn2='Hamburger' btn3='Japanese Food' btn4='Cakes' btn5='Ice Cream' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} itemName={itemName} itemValue={itemValue}/>
                 <div id='drinkCards' className='itemOptions container'>
-                    <DrinksCard name='Strawberry' img={strawberry} price={10.00}/>
-                    <DrinksCard name='Kiwi' img={kiwi} price={9.00}/>
-                    <DrinksCard name='Banana' img={banana} price={8.50}/>
+                    <DrinksCard name='Strawberry' img={strawberry} price={2.00}/>
+                    <DrinksCard name='Kiwi' img={kiwi} price={2.00}/>
+                    <DrinksCard name='Banana' img={banana} price={2.00}/>
                 </div>
             </div>
         </>
@@ -80,11 +83,11 @@ function Drinks({sum,updateSum,setTotal,setContent,itemName,itemValue}){
                     <div className='buyItem'>
                         <div className="sizes btn-group" role="group">
                             <input type="radio" className="btn-check" name={taste} id={taste+'P'} autoComplete="off" onClick={changeValue} value={props.price}/>
-                            <label className="btn btn-outline-primary" htmlFor={taste+'P'}>Small</label>
-                            <input type="radio" className="btn-check" name={taste} id={taste+'M'} autoComplete="off" onClick={changeValue} value={props.price+3}/>
-                            <label className="btn btn-outline-primary" htmlFor={taste+'M'}>Medium</label>
-                            <input type="radio" className="btn-check" name={taste} id={taste+'G'} autoComplete="off" onClick={changeValue} value={props.price+6}/>
-                            <label className="btn btn-outline-primary" htmlFor={taste+'G'}>Large</label>
+                            <label className="btn btn-outline-primary" htmlFor={taste+'P'}>300ML</label>
+                            <input type="radio" className="btn-check" name={taste} id={taste+'M'} autoComplete="off" onClick={changeValue} value={props.price+1}/>
+                            <label className="btn btn-outline-primary" htmlFor={taste+'M'}>500ML</label>
+                            <input type="radio" className="btn-check" name={taste} id={taste+'G'} autoComplete="off" onClick={changeValue} value={props.price+2}/>
+                            <label className="btn btn-outline-primary" htmlFor={taste+'G'}>700ML</label>
                         </div>
                         <button id={'add'+props.name} className='cartBtn btn btn-warning' onClick={addTotal}>Add to Cart</button>
                     </div>

@@ -26,7 +26,8 @@ function Japanese({sum,updateSum,setTotal,setContent,itemName,itemValue}){
             case 'addSushi':
                 itemPrice = document.getElementById('sushi').textContent;
                 if(itemPrice.includes('$')){
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="sushi"]:checked').id}"]`).textContent
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+`(${itemSize})`)
                     itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
@@ -35,7 +36,8 @@ function Japanese({sum,updateSum,setTotal,setContent,itemName,itemValue}){
             case 'addYakisoba':
                 itemPrice = document.getElementById('yakisoba').textContent;
                 if(itemPrice.includes('$')){
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="yakisoba"]:checked').id}"]`).textContent
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+`(${itemSize})`)
                     itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
@@ -44,7 +46,8 @@ function Japanese({sum,updateSum,setTotal,setContent,itemName,itemValue}){
             case 'addGyoza':
                 itemPrice = document.getElementById('gyoza').textContent;
                 if(itemPrice.includes('$')){
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="gyoza"]:checked').id}"]`).textContent
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+`(${itemSize})`)
                     itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
@@ -60,9 +63,9 @@ function Japanese({sum,updateSum,setTotal,setContent,itemName,itemValue}){
             <div className='itemPage'>
                 <Categories btn1='Pizza' btn2='Hamburger' btn3='Cakes' btn4='Ice Cream' btn5='Drinks' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} itemName={itemName} itemValue={itemValue}/>
                 <div id='japaneseCards' className='itemOptions container'>
-                    <JapaneseCard name='Sushi' img={sushi} price={10.00}/>
-                    <JapaneseCard name='Yakisoba' img={yakisoba} price={9.00}/>
-                    <JapaneseCard name='Gyoza' img={gyoza} price={8.50}/>
+                    <JapaneseCard name='Sushi' img={sushi} price={8.00}/>
+                    <JapaneseCard name='Yakisoba' img={yakisoba} price={8.00}/>
+                    <JapaneseCard name='Gyoza' img={gyoza} price={6.00}/>
                 </div>
             </div>
         </>
@@ -81,9 +84,9 @@ function Japanese({sum,updateSum,setTotal,setContent,itemName,itemValue}){
                         <div className="sizes btn-group" role="group">
                             <input type="radio" className="btn-check" name={taste} id={taste+'P'} autoComplete="off" onClick={changeValue} value={props.price}/>
                             <label className="btn btn-outline-primary" htmlFor={taste+'P'}>Small</label>
-                            <input type="radio" className="btn-check" name={taste} id={taste+'M'} autoComplete="off" onClick={changeValue} value={props.price+3}/>
+                            <input type="radio" className="btn-check" name={taste} id={taste+'M'} autoComplete="off" onClick={changeValue} value={props.price+5}/>
                             <label className="btn btn-outline-primary" htmlFor={taste+'M'}>Medium</label>
-                            <input type="radio" className="btn-check" name={taste} id={taste+'G'} autoComplete="off" onClick={changeValue} value={props.price+6}/>
+                            <input type="radio" className="btn-check" name={taste} id={taste+'G'} autoComplete="off" onClick={changeValue} value={props.price+10}/>
                             <label className="btn btn-outline-primary" htmlFor={taste+'G'}>Large</label>
                         </div>
                         <button id={'add'+props.name} className='cartBtn btn btn-warning' onClick={addTotal}>Add to Cart</button>

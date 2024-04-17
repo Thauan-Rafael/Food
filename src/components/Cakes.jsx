@@ -26,7 +26,8 @@ function Cake({sum,updateSum,setTotal,setContent,itemName,itemValue}){
             case 'addChocolate':
                 itemPrice = document.getElementById('chocolateCake').textContent;
                 if(itemPrice.includes('$')){
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="chocolate"]:checked').id}"]`).textContent
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cake(${itemSize})`)
                     itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
@@ -35,7 +36,8 @@ function Cake({sum,updateSum,setTotal,setContent,itemName,itemValue}){
             case 'addStrawberry':
                 itemPrice = document.getElementById('strawberryCake').textContent;
                 if(itemPrice.includes('$')){
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="strawberry"]:checked').id}"]`).textContent
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cake(${itemSize})`)
                     itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
@@ -44,7 +46,8 @@ function Cake({sum,updateSum,setTotal,setContent,itemName,itemValue}){
             case 'addLemon':
                 itemPrice = document.getElementById('lemonCake').textContent;
                 if(itemPrice.includes('$')){
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="lemon"]:checked').id}"]`).textContent
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cake(${itemSize})`)
                     itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
@@ -60,9 +63,9 @@ function Cake({sum,updateSum,setTotal,setContent,itemName,itemValue}){
             <div className='itemPage'>
                 <Categories btn1='Pizza' btn2='Hamburger' btn3='Japanese Food' btn4='Ice Cream' btn5='Drinks' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} itemName={itemName} itemValue={itemValue}/>
                 <div id='cakeCards' className='itemOptions container'>
-                    <CakeCard name='Chocolate' img={chocolate} price={10.00}/>
-                    <CakeCard name='Strawberry' img={strawberry} price={9.00}/>
-                    <CakeCard name='Lemon' img={lemon} price={8.50}/>
+                    <CakeCard name='Chocolate' img={chocolate} price={18.00}/>
+                    <CakeCard name='Strawberry' img={strawberry} price={20.00}/>
+                    <CakeCard name='Lemon' img={lemon} price={19.00}/>
                 </div>
             </div>
         </>
@@ -81,9 +84,9 @@ function Cake({sum,updateSum,setTotal,setContent,itemName,itemValue}){
                         <div className="sizes btn-group" role="group">
                             <input type="radio" className="btn-check" name={taste} id={taste+'P'} autoComplete="off" onClick={changeValue} value={props.price}/>
                             <label className="btn btn-outline-primary" htmlFor={taste+'P'}>Small</label>
-                            <input type="radio" className="btn-check" name={taste} id={taste+'M'} autoComplete="off" onClick={changeValue} value={props.price+3}/>
+                            <input type="radio" className="btn-check" name={taste} id={taste+'M'} autoComplete="off" onClick={changeValue} value={props.price+12}/>
                             <label className="btn btn-outline-primary" htmlFor={taste+'M'}>Medium</label>
-                            <input type="radio" className="btn-check" name={taste} id={taste+'G'} autoComplete="off" onClick={changeValue} value={props.price+6}/>
+                            <input type="radio" className="btn-check" name={taste} id={taste+'G'} autoComplete="off" onClick={changeValue} value={props.price+24}/>
                             <label className="btn btn-outline-primary" htmlFor={taste+'G'}>Large</label>
                         </div>
                         <button id={'add'+props.name} className='cartBtn btn btn-warning' onClick={addTotal}>Add to Cart</button>

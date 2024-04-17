@@ -26,7 +26,8 @@ function Cream({sum,updateSum,setTotal,setContent,itemName,itemValue}){
             case 'addStrawberry':
                 itemPrice = document.getElementById('strawberryCream').textContent;
                 if(itemPrice.includes('$')){
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="strawberry"]:checked').id}"]`).textContent
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cream(${itemSize})`)
                     itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
@@ -35,7 +36,8 @@ function Cream({sum,updateSum,setTotal,setContent,itemName,itemValue}){
             case 'addChocolate':
                 itemPrice = document.getElementById('chocolateCream').textContent;
                 if(itemPrice.includes('$')){
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="chocolate"]:checked').id}"]`).textContent
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cream(${itemSize})`)
                     itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
@@ -44,7 +46,8 @@ function Cream({sum,updateSum,setTotal,setContent,itemName,itemValue}){
             case 'addVanilla':
                 let itemPrice = document.getElementById('vanillaCream').textContent;
                 if(itemPrice.includes('$')){
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $')))
+                    let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="vanilla"]:checked').id}"]`).textContent
+                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cream(${itemSize})`)
                     itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
@@ -60,9 +63,9 @@ function Cream({sum,updateSum,setTotal,setContent,itemName,itemValue}){
             <div className='itemPage'>
                 <Categories btn1='Pizza' btn2='Hamburger' btn3='Japanese Food' btn4='Cakes' btn5='Drinks' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} itemName={itemName} itemValue={itemValue}/>
                 <div id='creamCards' className='itemOptions container'>
-                    <CreamCard name='Strawberry' img={strawberry} price={10.00}/>
-                    <CreamCard name='Chocolate' img={chocolate} price={9.00}/>
-                    <CreamCard name='Vanilla' img={vanilla} price={8.50}/>
+                    <CreamCard name='Strawberry' img={strawberry} price={3.00}/>
+                    <CreamCard name='Chocolate' img={chocolate} price={3.00}/>
+                    <CreamCard name='Vanilla' img={vanilla} price={3.00}/>
                 </div>
             </div>
         </>
@@ -80,11 +83,11 @@ function Cream({sum,updateSum,setTotal,setContent,itemName,itemValue}){
                     <div className='buyItem'>
                         <div className="sizes btn-group" role="group">
                             <input type="radio" className="btn-check" name={taste} id={taste+'P'} autoComplete="off" onClick={changeValue} value={props.price}/>
-                            <label className="btn btn-outline-primary" htmlFor={taste+'P'}>Small</label>
-                            <input type="radio" className="btn-check" name={taste} id={taste+'M'} autoComplete="off" onClick={changeValue} value={props.price+3}/>
-                            <label className="btn btn-outline-primary" htmlFor={taste+'M'}>Medium</label>
-                            <input type="radio" className="btn-check" name={taste} id={taste+'G'} autoComplete="off" onClick={changeValue} value={props.price+6}/>
-                            <label className="btn btn-outline-primary" htmlFor={taste+'G'}>Large</label>
+                            <label className="btn btn-outline-primary" htmlFor={taste+'P'}>1 Scoop</label>
+                            <input type="radio" className="btn-check" name={taste} id={taste+'M'} autoComplete="off" onClick={changeValue} value={props.price+1}/>
+                            <label className="btn btn-outline-primary" htmlFor={taste+'M'}>2 Scoops</label>
+                            <input type="radio" className="btn-check" name={taste} id={taste+'G'} autoComplete="off" onClick={changeValue} value={props.price+2}/>
+                            <label className="btn btn-outline-primary" htmlFor={taste+'G'}>3 Scoops</label>
                         </div>
                         <button id={'add'+props.name} className='cartBtn btn btn-warning' onClick={addTotal}>Add to Cart</button>
                     </div>
