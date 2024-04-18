@@ -4,7 +4,7 @@ import chocolate from '../media/iceCreams/chocolateImg.png'
 import vanilla from '../media/iceCreams/vanillaImg.png'
 import Categories from '../components/Categories.jsx'
 
-function Cream({sum,updateSum,setTotal,setContent,itemName,itemValue}){
+function Cream({sum,updateSum,setTotal,setContent,selectedItem}){
     function changeValue(event){
         switch (event.target.name) {
             case 'strawberry':
@@ -27,8 +27,7 @@ function Cream({sum,updateSum,setTotal,setContent,itemName,itemValue}){
                 itemPrice = document.getElementById('strawberryCream').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="strawberry"]:checked').id}"]`).textContent
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cream(${itemSize})`)
-                    itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cream(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
@@ -37,8 +36,7 @@ function Cream({sum,updateSum,setTotal,setContent,itemName,itemValue}){
                 itemPrice = document.getElementById('chocolateCream').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="chocolate"]:checked').id}"]`).textContent
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cream(${itemSize})`)
-                    itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cream(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
@@ -47,8 +45,7 @@ function Cream({sum,updateSum,setTotal,setContent,itemName,itemValue}){
                 let itemPrice = document.getElementById('vanillaCream').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="vanilla"]:checked').id}"]`).textContent
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cream(${itemSize})`)
-                    itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cream(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
@@ -61,7 +58,7 @@ function Cream({sum,updateSum,setTotal,setContent,itemName,itemValue}){
     return(
         <>
             <div className='itemPage'>
-                <Categories btn1='Pizza' btn2='Hamburger' btn3='Japanese Food' btn4='Cakes' btn5='Drinks' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} itemName={itemName} itemValue={itemValue}/>
+                <Categories btn1='Pizza' btn2='Hamburger' btn3='Japanese Food' btn4='Cakes' btn5='Drinks' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} selectedItem={selectedItem}/>
                 <div id='creamCards' className='itemOptions container'>
                     <CreamCard name='Strawberry' img={strawberry} price={3.00}/>
                     <CreamCard name='Chocolate' img={chocolate} price={3.00}/>

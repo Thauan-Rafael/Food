@@ -25,7 +25,7 @@ function Header(props){
         props.setContent(<Home changeContent={props.changeContent}/>)
     }
     function openCart(){
-        props.setContent(<Cart itemName={props.itemName} itemValue={props.itemValue}/>)
+        props.setContent(<Cart selectedItem={props.selectedItem}/>)
     }
 }
 export default Header;

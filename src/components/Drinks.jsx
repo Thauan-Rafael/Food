@@ -4,7 +4,7 @@ import kiwi from '../media/drinks/kiwiImg.png'
 import banana from '../media/drinks/bananaImg.png'
 import Categories from '../components/Categories.jsx'
 
-function Drinks({sum,updateSum,setTotal,setContent,itemName,itemValue}){
+function Drinks({sum,updateSum,setTotal,setContent,selectedItem}){
     function changeValue(event){
         switch (event.target.name) {
             case 'strawberry':
@@ -27,8 +27,7 @@ function Drinks({sum,updateSum,setTotal,setContent,itemName,itemValue}){
                 itemPrice = document.getElementById('strawberryDrink').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="strawberry"]:checked').id}"]`).textContent
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Drink(${itemSize})`)
-                    itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cake(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
@@ -37,8 +36,7 @@ function Drinks({sum,updateSum,setTotal,setContent,itemName,itemValue}){
                 itemPrice = document.getElementById('kiwiDrink').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="kiwi"]:checked').id}"]`).textContent
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Drink(${itemSize})`)
-                    itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cake(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
@@ -47,8 +45,7 @@ function Drinks({sum,updateSum,setTotal,setContent,itemName,itemValue}){
                 let itemPrice = document.getElementById('bananaDrink').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="banana"]:checked').id}"]`).textContent
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Drink(${itemSize})`)
-                    itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cake(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
@@ -61,7 +58,7 @@ function Drinks({sum,updateSum,setTotal,setContent,itemName,itemValue}){
     return(
         <>
             <div className='itemPage'>
-                <Categories btn1='Pizza' btn2='Hamburger' btn3='Japanese Food' btn4='Cakes' btn5='Ice Cream' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} itemName={itemName} itemValue={itemValue}/>
+                <Categories btn1='Pizza' btn2='Hamburger' btn3='Japanese Food' btn4='Cakes' btn5='Ice Cream' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} selectedItem={selectedItem}/>
                 <div id='drinkCards' className='itemOptions container'>
                     <DrinksCard name='Strawberry' img={strawberry} price={2.00}/>
                     <DrinksCard name='Kiwi' img={kiwi} price={2.00}/>

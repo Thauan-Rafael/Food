@@ -4,7 +4,7 @@ import yakisoba from '../media/japaneseFoods/yakisobaImg.png'
 import gyoza from '../media/japaneseFoods/gyozaImg.png'
 import Categories from '../components/Categories.jsx'
 
-function Japanese({sum,updateSum,setTotal,setContent,itemName,itemValue}){
+function Japanese({sum,updateSum,setTotal,setContent,selectedItem}){
     function changeValue(event){
         switch (event.target.name) {
             case 'sushi':
@@ -27,8 +27,7 @@ function Japanese({sum,updateSum,setTotal,setContent,itemName,itemValue}){
                 itemPrice = document.getElementById('sushi').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="sushi"]:checked').id}"]`).textContent
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+`(${itemSize})`)
-                    itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+`(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
@@ -37,8 +36,7 @@ function Japanese({sum,updateSum,setTotal,setContent,itemName,itemValue}){
                 itemPrice = document.getElementById('yakisoba').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="yakisoba"]:checked').id}"]`).textContent
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+`(${itemSize})`)
-                    itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+`(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
@@ -47,8 +45,7 @@ function Japanese({sum,updateSum,setTotal,setContent,itemName,itemValue}){
                 itemPrice = document.getElementById('gyoza').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="gyoza"]:checked').id}"]`).textContent
-                    itemName.push(itemPrice.substring(0, itemPrice.indexOf(' - $'))+`(${itemSize})`)
-                    itemValue.push(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+`(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                 }
                 else{alert('Empty')}
@@ -61,7 +58,7 @@ function Japanese({sum,updateSum,setTotal,setContent,itemName,itemValue}){
     return(
         <>
             <div className='itemPage'>
-                <Categories btn1='Pizza' btn2='Hamburger' btn3='Cakes' btn4='Ice Cream' btn5='Drinks' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} itemName={itemName} itemValue={itemValue}/>
+                <Categories btn1='Pizza' btn2='Hamburger' btn3='Cakes' btn4='Ice Cream' btn5='Drinks' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} selectedItem={selectedItem}/>
                 <div id='japaneseCards' className='itemOptions container'>
                     <JapaneseCard name='Sushi' img={sushi} price={8.00}/>
                     <JapaneseCard name='Yakisoba' img={yakisoba} price={8.00}/>

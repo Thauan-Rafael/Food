@@ -8,8 +8,7 @@ import Japanese from './components/Japanese.jsx'
 import Cake from './components/Cakes.jsx'
 import Cream from './components/Creams.jsx'
 import Drinks from './components/Drinks.jsx'
-let itemName = []
-let itemValue = []
+let selectedItem = []
 function App() {
   let sum = 0;
   const [total, setTotal] = React.useState('0.00')
@@ -21,22 +20,22 @@ function App() {
   function changeContent(value) {
       switch (value) {
         case 'pizzaCard':
-          setContent(<Pizza sum={sum} setTotal={setTotal} setContent={setContent} updateSum={updateSum} itemName={itemName} itemValue={itemValue}/>);
+          setContent(<Pizza sum={sum} setTotal={setTotal} setContent={setContent} updateSum={updateSum} selectedItem={selectedItem}/>);
           break;
       case 'hamburgerCard':
-          setContent(<Hamburger sum={sum} setTotal={setTotal} setContent={setContent} updateSum={updateSum} itemName={itemName} itemValue={itemValue}/>);
+          setContent(<Hamburger sum={sum} setTotal={setTotal} setContent={setContent} updateSum={updateSum} selectedItem={selectedItem}/>);
           break;
       case 'japaneseCard':
-          setContent(<Japanese sum={sum} setTotal={setTotal} setContent={setContent} updateSum={updateSum} itemName={itemName} itemValue={itemValue}/>);
+          setContent(<Japanese sum={sum} setTotal={setTotal} setContent={setContent} updateSum={updateSum} selectedItem={selectedItem}/>);
           break;
       case 'cakeCard':
-          setContent(<Cake sum={sum} setTotal={setTotal} setContent={setContent} updateSum={updateSum} itemName={itemName} itemValue={itemValue}/>);
+          setContent(<Cake sum={sum} setTotal={setTotal} setContent={setContent} updateSum={updateSum} selectedItem={selectedItem}/>);
           break;
     case 'iceCreamCard':
-          setContent(<Cream sum={sum} setTotal={setTotal} setContent={setContent} updateSum={updateSum} itemName={itemName} itemValue={itemValue}/>);
+          setContent(<Cream sum={sum} setTotal={setTotal} setContent={setContent} updateSum={updateSum} selectedItem={selectedItem}/>);
           break;
     case 'drinkCard':
-          setContent(<Drinks sum={sum} setTotal={setTotal} setContent={setContent} updateSum={updateSum} itemName={itemName} itemValue={itemValue}/>);
+          setContent(<Drinks sum={sum} setTotal={setTotal} setContent={setContent} updateSum={updateSum} selectedItem={selectedItem}/>);
           break;
         default:
           break;
@@ -44,7 +43,7 @@ function App() {
   }
   return (
     <>
-      <Header sum={sum} updateSum={updateSum} total={total} setContent={setContent} changeContent={changeContent} itemName={itemName} itemValue={itemValue}/>
+      <Header sum={sum} updateSum={updateSum} total={total} setContent={setContent} changeContent={changeContent} selectedItem={selectedItem}/>
       <Content sum={sum} setTotal={setTotal} content={content} setContent={setContent}/>
     </>
   )

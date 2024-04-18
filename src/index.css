@@ -119,13 +119,26 @@
 .cartList h1{
   text-align: center;
 }
-.cartList ul{
+#cartItens{
   display: grid;
-  align-items: center;
-  text-align: left;
+}
+#cartItem{
+  width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 6fr 1fr 1fr;
+  justify-content: center;
+  gap: 5%;
+}
+#cartItem h3{
+  font-size: 2.1vw;
+}
+#quantity{
+  display: flex;
+  gap: 25%;
 }
 .cartList button{
-  font-size: 3vh;
+  font-size: 3vw;
   border-radius: 20vh;
   width: 15%;
   margin: 2% auto auto auto;
