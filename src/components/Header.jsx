@@ -25,7 +25,9 @@ function Header(props){
         props.setContent(<Home changeContent={props.changeContent}/>)
     }
     function openCart(){
-        props.setContent(<Cart selectedItem={props.selectedItem}/>)
+        let itemPrice = document.getElementById('totalPrice').textContent;        
+        props.updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+        props.setContent(<Cart cartItems={props.cartItems} itemQuantities={props.itemQuantities} selectedItem={props.selectedItem} updateSum={props.updateSum}/>)
     }
 }
 export default Header;

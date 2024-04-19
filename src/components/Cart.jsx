@@ -1,43 +1,52 @@
 import React from 'react'
 function Cart(props){
-    let cartItens = [];
-    let itemQuantities = {}
-    function seeItens(){
+    function seeItems(){
+        console.log(props.cartItems)
         props.selectedItem.forEach((item, index) => {
-            if (item.name in itemQuantities) {
-                itemQuantities[item.name]++;
-                cartItens.find(product => product.name === item.name).quantity +=1;
+            if (item.name in props.itemQuantities) {
+                props.cartItems.find(product => product.name === item.name).quantity +=1;
             } else {
-                itemQuantities[item.name] = 1;
-                cartItens.push({name:item.name,price:item.price,quantity:itemQuantities[item.name]})
+                props.itemQuantities[item.name] = 1;
+                props.cartItems.push({name:item.name,price:item.price,quantity:1})
             }
         });
-        return cartItens.map((item, index) => (
+        return props.cartItems.map((item, index) => (
             <div id='cartItem' key={index}>
                 <h3>{item.name} - ${item.price}</h3>
                 <div id='quantity'>
-                    <h3>-</h3>
-                    <h3>{item.quantity}</h3>
-                    <h3>+</h3>
+                    <h3 onClick={() => changeQuantity(item.name,item.price,'-')}>-</h3>
+                    <h3 id={`quantity${index}`}>{item.quantity}</h3>
+                    <h3 onClick={() => changeQuantity(item.name,item.price,'+')}>+</h3>
                 </div>
                 <h3>X</h3>
             </div>
         ));
     }
-    function changeQuantity(event){
-        if(event.target.textContent == '-'){
-            alert('World Hello')
+    function changeQuantity(name,price,operation){
+        let itemIndex = props.cartItems.findIndex(item => item.name === name);
+        if(operation == '-'){
+            if(props.cartItems[itemIndex].quantity == 1){
+                alert('Only have one')
+            }
+            else{
+                props.cartItems[itemIndex].quantity--;
+                props.updateSum(price*(-1))
+                document.getElementById(`quantity${itemIndex}`).textContent = props.cartItems[itemIndex].quantity;
+            }
         }
-        if(event.target.textContent == '+'){
-            alert('Hello World!')
+        if(operation == '+'){
+            props.cartItems[itemIndex].quantity++;
+            props.updateSum(price)
+            document.getElementById(`quantity${itemIndex}`).textContent = props.cartItems[itemIndex].quantity;
         }
     }
+
     return(
         <>
             <div className='cartList container'>
                 <h1>Cart</h1>
                 <div id='cartItens'>
-                    {seeItens()}   
+                    {seeItems()}   
                 </div>
                 
                 <button className='btn btn-success' data-bs-toggle="modal" data-bs-target="#staticBackdrop">Buy</button>
