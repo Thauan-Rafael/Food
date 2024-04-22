@@ -4,7 +4,7 @@ import Cart from './Cart'
 function Header(props){
     return(
         <nav className="navbar" id='header'>
-            <div className="container-fluid">
+            <div id="navbarHeader" className="container-fluid">
             <a id='title' className="navbar-brand" onClick={openHome}>
                 <i className="fa-solid fa-utensils"></i>
                 <i className="fa-solid fa-face-laugh-beam"></i>
@@ -12,7 +12,7 @@ function Header(props){
                 <i className="fa-solid fa-face-laugh-beam"></i>
                 <i className="fa-solid fa-utensils"></i>
             </a>
-            <a className='navbar-brand' onClick={openCart}>
+            <a id='cartButton' className='navbar-brand' onClick={openCart}>
                 <i id='totalPrice'>${props.total}</i>
                 <i className="fa-solid fa-cart-shopping"></i>
             </a>

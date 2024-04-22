@@ -8,7 +8,7 @@ function Home({changeContent}){
     function switchContent(event){changeContent(event.currentTarget.id);}
     return(
       <>
-        <section id="categories" className="container">
+        <section id="categories" className="container-fluid">
             <div className="row">
                 <OptionCard name='Pizza' id='pizzaCard' img={pizza}/>  
                 <OptionCard name='Hamburger' id='hamburgerCard' img={hamburger}/>  
@@ -22,7 +22,7 @@ function Home({changeContent}){
     )
     function OptionCard(props){
         return(
-            <div id={props.id} className="categories-column col-sm-12 col-md-6 col-lg-4" onClick={switchContent}>
+            <div id={props.id} className="categories-column col-sm-12 col-md-6 col-xl-4" onClick={switchContent}>
                     <div className="card">
                         <div className="card-header">
                             <h3>{props.name}</h3>

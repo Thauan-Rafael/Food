@@ -32,7 +32,7 @@
 #categories{
   display: grid;
   align-items: center;
-  padding: 0;
+  padding: 0 2% 0 2%;
 }
 .row{
   height: 100%;
@@ -44,7 +44,7 @@
   margin-bottom: 2%;
 }
 .categories-column .card{
-  height: 275px;
+  height: 100%;
   border: 2px solid black;
 }
 .categories-column .card:hover{
@@ -53,11 +53,19 @@
 .categories-column .card-body{
   border-top: 2px solid black;
   padding: 3% 0 3% 0;
+  display: flex;
+  align-items: center;
 }
 .card-image{
   width: 100%;
   margin: auto;
   height: 200px;
+}
+#japaneseCard .card-image{
+  padding: 0 2% 0 2%;
+}
+#drinkCard .card-image{
+  padding: 3%;
 }
 .itemPage{
   display: grid;
@@ -146,4 +154,93 @@
 #confirmButton, #closeButton{
   background-color: #e46e0d;
   border-color: #e46e0d;
+}
+@media screen and (max-width:576px) and (orientation:portrait){
+  #root{
+    gap: 1%;
+  }
+  #header{
+    padding: 0 3% 0 3%;
+    height: 5vh;
+  }
+  #navbarHeader{
+    width: 95%;
+    padding: 0;
+    justify-content: space-between;
+  }
+  #header i, #header a{
+    font-size: 95%;
+  }
+  .navbar-brand{
+    margin: 0;
+  }
+  #categories{
+    width: 90%;
+  }
+  .categories-column{
+    margin-bottom: 4%;
+  }
+  .card-header h3{
+    margin: 0;
+  }
+}
+@media screen and (min-width:576px) and (max-width:1024px) and (orientation:portrait){
+  #root{
+    gap: 1%;
+  }
+  #header{
+    height: 7vh;
+  }
+  #header i, #header a{
+    font-size: 2.5vh;
+  }
+  .categories-column{
+    margin-bottom: 0;
+  }
+  .categories-column .card{
+    height: 90%;
+  }
+  .categories-column .card-header h3{
+    margin: 0;
+  }
+}
+@media screen and (min-width:1920px){
+  #header{
+    height: 7vh;
+  }
+  #header i, #header a{
+    font-size: 3vh;
+  }
+  .categories-column .card-image{
+    height: 100%;
+  }
+  .categories-column .card{
+    height: 40vh;
+  }
+  .card-header{
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .card-header h3{
+    font-size: 3.5vh;
+  }
+  .categories-column .card-body{
+    height: 70%;
+  }
+  #drinkCard .card-image{
+    padding: 1.5%;
+  }
+}
+@media screen and (max-height:576px) and (orientation:landscape){
+  #root{
+    gap: 1%;
+  }
+  .categories-column{
+    height: 75vh;
+  }
+  .categories-column .card-image{
+    height: 50vh;
+  }
 }
