@@ -13,7 +13,7 @@ let cartItems = [];
 let itemQuantities = {}
 function App() {
   let sum = 0;
-  const [total, setTotal] = React.useState('0.00')
+  const [total, setTotal] = React.useState('0')
   const [content, setContent] = React.useState(<Home changeContent={changeContent}/>);
   function updateSum(amount){
     sum = sum + amount;

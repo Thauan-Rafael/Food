@@ -5,7 +5,7 @@
   min-height:100vh;
   display: grid;
   grid-template-rows: auto 1fr;
-  gap: 3%;
+  gap: 1%;
 }
 #header{
   padding: 0.5% 2% 0.5% 2%;
@@ -41,14 +41,14 @@
   align-items: center;
   display: grid;
   text-align: center;
-  margin-bottom: 2%;
+  margin-bottom: 1%;
 }
 .categories-column .card{
   height: 100%;
   border: 2px solid black;
 }
 .categories-column .card:hover{
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .categories-column .card-body{
   border-top: 2px solid black;
@@ -183,6 +183,53 @@
   .card-header h3{
     margin: 0;
   }
+  .itemPage{
+    grid-template-rows: auto 9fr;
+  }
+  #categoriesSelect{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3%;
+  }
+  #categoriesSelect .btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 75%;
+    flex-basis: calc(33% - 10px);
+    height:45%;
+    white-space: nowrap;
+    padding: 2%;
+  }
+  .itemOptions{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    gap: 0;
+  }
+  .itemOptions .card{
+    width: 90vw;
+  }
+  .itemOptions .card-image{
+    width: 100%;
+  }
+  .itemOptions .card-footer{
+    padding: 3.5%;
+  }
+  .buyItem{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 5%;
+  }
+  .itemOptions .btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 5.5%
+  }
 }
 @media screen and (min-width:576px) and (max-width:1024px) and (orientation:portrait){
   #root{
@@ -202,6 +249,46 @@
   }
   .categories-column .card-header h3{
     margin: 0;
+  }
+  #categoriesSelect{
+    margin-bottom: 2%;
+  }
+  .itemOptions{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    gap: 2%;
+    flex-basis: calc(45% - 10px);
+  }
+  .itemOptions .card{
+    width: 40vw;
+    height: 40vh;
+  }
+  .itemOptions .card-image{
+    width: 100%;
+    height: 30vh;
+  }
+  .itemOptions .card-footer{
+    padding: 1%;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+  }
+  .itemOptions .card-footer h3{
+    margin-bottom: 0;
+  }
+  .buyItem{
+    width: 100%;
+    gap: 15%;
+    margin: auto;
+  }
+  .itemOptions .btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 5.5%
   }
 }
 @media screen and (min-width:1920px){
@@ -233,14 +320,31 @@
     padding: 1.5%;
   }
 }
-@media screen and (max-height:576px) and (orientation:landscape){
+@media screen and (max-height:576px) and (max-width:767px) and (orientation:landscape){
   #root{
     gap: 1%;
   }
   .categories-column{
-    height: 75vh;
+    height: 70vh;
+    margin-bottom: 3%;
+  }
+  .categories-column .card{
+    height: 100%;
+    width: 70%;
+    padding: 0;
+    margin: auto;
+  }
+  .categories-column .card-body{
+    padding: 0;
   }
   .categories-column .card-image{
+    width: 60vw;
     height: 50vh;
   }
+}
+@media screen and (max-height:576px) and (min-width:767px) and (orientation:landscape){
+  .categories-column{
+    height: 70vh;
+    margin-bottom: 2%;
+  }  
 }

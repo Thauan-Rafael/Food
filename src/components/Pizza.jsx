@@ -71,7 +71,7 @@ function Pizza({sum,updateSum,setTotal,setContent,selectedItem}){
     function PizzaCard(props){
         let taste = props.name.toLowerCase()
         return(
-            <div className="card">
+            <div className="card col-sm-12 col-md-6 col-xl-4">
                 <div className="card-body">
                     <img className="card-image" src={props.img}></img>
                 </div>
