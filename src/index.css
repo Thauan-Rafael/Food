@@ -89,16 +89,20 @@
   padding: 0;
 }
 .itemOptions .card{
-  height: 90%;
+  height: 78vh;
+  max-width: 30vw;
+  min-width: 30vw;
   border: 2px solid black;
   display: grid;
   grid-template-rows: 2.5fr 1fr;
 }
 .itemOptions .card-body{
+  display: grid;
+  align-items: center;
   padding: 0;
 }
 .itemOptions .card-image{
-  height: 100%;
+  height: 52vh;
 }
 .itemOptions .card-footer{
   border-top: 2px solid black;
@@ -209,14 +213,17 @@
     gap: 0;
   }
   .itemOptions .card{
+    margin: 2% 0 2% 0;
     grid-template-rows: 3fr 0.5fr;
-    width: 90vw;
+    height: 80vh;
+    min-width: 90vw;
+    max-width: 90vw;
   }
   .itemOptions .card-image{
     width: 100%;
   }
   .itemOptions .card-footer{
-    padding: 3.5%;
+    padding: 4%;
   }
   .buyItem{
     display: grid;
@@ -268,12 +275,12 @@
     max-width: 100vw;
   }
   .itemOptions .card{
-    width: 40vw;
-    height: 40vh;
+    min-width: 40vw;
+    height: 38vh;
   }
   .itemOptions .card-image{
     width: 100%;
-    height: 30vh;
+    height: 25vh;
   }
   .itemOptions .card-footer{
     padding: 1%;
@@ -289,6 +296,7 @@
     width: 100%;
   }
   .itemOptions .btn{
+    font-size: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -330,6 +338,59 @@
     padding: 1.5%;
   }
 }
+@media screen and (max-height: 576px) and (orientation: landscape){
+  .itemPage{
+    grid-template-rows: 0.5fr 9fr;
+  }
+  #categoriesSelect{
+    height: 10vh;
+  }
+  #categoriesSelect .btn{
+    width: 15vw;
+    font-size: 90%;
+  }
+  .itemOptions{
+    min-width: 100vw;
+    gap: 1.5%;
+    margin-top: 1%;
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .itemOptions .card{
+    margin-bottom: 1%;
+    height: 70vh;
+    min-width: 25vw;
+    max-width: 25vw;
+  }
+  .itemOptions .card-body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .itemOptions .card-image{
+    height: 40vh;
+  }
+  .itemOptions .card-footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1%;
+  }
+  .itemOptions .card-footer h3{
+    font-size: 5vh;
+  }
+  .buyItem{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .itemOptions .btn{
+    font-size: 60%;
+    white-space: nowrap;
+    margin: 1% 0 1% 0;
+  }
+}
 @media screen and (max-height:576px) and (max-width:767px) and (orientation:landscape){
   #root{
     gap: 1%;
@@ -357,4 +418,25 @@
     height: 70vh;
     margin-bottom: 2%;
   }  
+}
+@media screen and (min-width:1024px) and (max-width:1368px) and (orientation:landscape){
+  .itemOptions h3{
+    margin: 0;
+  }
+  .itemOptions .card-footer{
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+    align-items: center;
+  }
+  .buyItem{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    gap: 15%;
+    align-items: center;
+  }
+  .itemOptions .btn{
+    font-size: 2.5vh;
+    white-space: nowrap;
+  }
 }
