@@ -105,8 +105,13 @@
   height: 52vh;
 }
 .itemOptions .card-footer{
+  display: grid;
+  grid-template-rows: 1fr 2fr;
   border-top: 2px solid black;
   text-align: center;
+}
+.itemOptions .card-footer h3{
+  font-size: 5vh;
 }
 .buyItem{
   display: grid;
@@ -115,6 +120,8 @@
 }
 .buyItem .btn {
   border-radius: 10vw;
+  margin: auto;
+  font-size: 3vh;
 }
 .cartBtn:hover, .sizes:hover, #categoriesSelect button:hover{
   transform: scale(1.1);
@@ -223,7 +230,11 @@
     width: 100%;
   }
   .itemOptions .card-footer{
+    display: block;
     padding: 4%;
+  }
+  .itemOptions .card-footer h3{
+    font-size: 3.5vh;
   }
   .buyItem{
     display: grid;
@@ -232,11 +243,28 @@
     gap: 5%;
   }
   .itemOptions .btn{
+    font-size: 2.5vh;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: auto;
-    padding: 5.5%
+    padding: 4%
+  }
+  .cartList{
+    width: 95vw;
+  }
+  .cartList h1{
+    margin-bottom: 5%;
+  }
+  .cartList .btn{
+    margin-top: 3%;
+    width: 20vw;
+    font-size: 5vw;
+  }
+  #cartItens h3{
+    margin-bottom: 5%;
+    font-size: 1.8vh;
+    white-space: nowrap;
   }
 }
 @media screen and (min-width:576px) and (max-width:1024px) and (orientation:portrait){
@@ -288,6 +316,7 @@
     grid-template-rows: 1fr 2fr;
   }
   .itemOptions .card-footer h3{
+    font-size: 3vh;
     margin-bottom: 0;
   }
   .buyItem{
@@ -296,7 +325,7 @@
     width: 100%;
   }
   .itemOptions .btn{
-    font-size: 100%;
+    font-size: 1.2vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -307,6 +336,24 @@
     font-size: 90%;
     white-space: nowrap;
     padding: 3% !important;
+  }
+  .cartList{
+    padding: 3%;
+  }
+  .cartList h1{
+    margin-bottom: 5%;
+    font-size: 5vh;
+  }
+  .cartList .btn{
+    margin-top: 4%;
+    width: 20vw;
+    font-size: 5vw;
+  }
+  #cartItens h3{
+    margin-bottom: 5%;
+    width: 100%;
+    font-size: 1.7vh;
+    white-space: nowrap;
   }
 }
 @media screen and (min-width:1920px){
