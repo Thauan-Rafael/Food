@@ -1,26 +1,25 @@
 import React from 'react'
+//let activation = true;
 function Cart(props){
+    /*console.log(activation)
+    if(activation == true){
+        seeItems();
+        return activation = false
+    }
+    else{return activation = true}*/
+    seeItems();
     function seeItems(){
-        console.log(props.cartItems)
-        props.selectedItem.forEach((item, index) => {
-            if (item.name in props.itemQuantities) {
-                props.cartItems.find(product => product.name === item.name).quantity +=1;
-            } else {
-                props.itemQuantities[item.name] = 1;
-                props.cartItems.push({name:item.name,price:item.price,quantity:1})
+        props.selectedItem.forEach((item) => {
+            const existingItem = props.cartItems.filter(product => product.name === item.name)
+            //console.log(item)
+            //console.log(props.selectedItem)
+            console.log(existingItem)
+            if (existingItem && item.index !== existingItem.index){
+                existingItem.quantity = props.selectedItem.length;
+            } else if(!existingItem){
+                props.cartItems.push({name:item.name,price:item.price,quantity:1,index:item.index})
             }
         });
-        return props.cartItems.map((item, index) => (
-            <div id='cartItem' key={index}>
-                <h3>{item.name} - ${item.price}</h3>
-                <div id='quantity'>
-                    <h3 onClick={() => changeQuantity(item.name,item.price,'-')}>-</h3>
-                    <h3 id={`quantity${index}`}>{item.quantity}</h3>
-                    <h3 onClick={() => changeQuantity(item.name,item.price,'+')}>+</h3>
-                </div>
-                <h3>X</h3>
-            </div>
-        ));
     }
     function changeQuantity(name,price,operation){
         let itemIndex = props.cartItems.findIndex(item => item.name === name);
@@ -46,7 +45,17 @@ function Cart(props){
             <div className='cartList container'>
                 <h1>Cart</h1>
                 <div id='cartItens'>
-                    {seeItems()}   
+                    {props.cartItems.map((item, index) => (
+                        <div id='cartItem' key={index}>
+                            <h3>{item.name} - ${item.price}</h3>
+                            <div id='quantity'>
+                                <h3 onClick={() => changeQuantity(item.name,item.price,'-')}>-</h3>
+                                <h3 id={`quantity${index}`}>{item.quantity}</h3>
+                                <h3 onClick={() => changeQuantity(item.name,item.price,'+')}>+</h3>
+                            </div>
+                            <h3>X</h3>
+                        </div>
+                    ))}   
                 </div>
                 
                 <button className='btn btn-success' data-bs-toggle="modal" data-bs-target="#staticBackdrop">Buy</button>
