@@ -1,42 +1,38 @@
 import React from 'react'
-//let activation = true;
 function Cart(props){
-    /*console.log(activation)
-    if(activation == true){
-        seeItems();
-        return activation = false
-    }
-    else{return activation = true}*/
     seeItems();
     function seeItems(){
         props.selectedItem.forEach((item) => {
-            const existingItem = props.cartItems.filter(product => product.name === item.name)
-            //console.log(item)
-            //console.log(props.selectedItem)
-            console.log(existingItem)
-            if (existingItem && item.index !== existingItem.index){
-                existingItem.quantity = props.selectedItem.length;
-            } else if(!existingItem){
+            const existingItem = props.cartItems.find(product => product.name === item.name)
+            if(!existingItem){
                 props.cartItems.push({name:item.name,price:item.price,quantity:1,index:item.index})
+            }
+            else{
+                props.cartItems.find(product => product.name === item.name).quantity = props.selectedItem.filter(product => product.name === item.name).length;
             }
         });
     }
     function changeQuantity(name,price,operation){
         let itemIndex = props.cartItems.findIndex(item => item.name === name);
         if(operation == '-'){
-            if(props.cartItems[itemIndex].quantity == 1){
+            if(props.selectedItem.filter(product => product.name === name).length == 1){
                 alert('Only have one')
             }
             else{
-                props.cartItems[itemIndex].quantity--;
                 props.updateSum(price*(-1))
-                document.getElementById(`quantity${itemIndex}`).textContent = props.cartItems[itemIndex].quantity;
+                for(let i = props.selectedItem.filter(product => product.name === name).length-1; i>=0;i--){
+                    if(name == props.selectedItem.find(product=>product.name == name).name){
+                        props.selectedItem.splice(i,1);
+                        document.getElementById(`quantity${itemIndex}`).textContent = props.selectedItem.filter(product => product.name === name).length;
+                        return;
+                    }
+                }
             }
         }
         if(operation == '+'){
-            props.cartItems[itemIndex].quantity++;
+            props.selectedItem.push({name:name,price:price,index:props.selectedItem.filter(product => product.name === name).length})
             props.updateSum(price)
-            document.getElementById(`quantity${itemIndex}`).textContent = props.cartItems[itemIndex].quantity;
+            document.getElementById(`quantity${itemIndex}`).textContent = props.selectedItem.filter(product => product.name === name).length
         }
     }
 

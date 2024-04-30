@@ -4,6 +4,7 @@ import chocolate from '../media/iceCreams/chocolateImg.png'
 import vanilla from '../media/iceCreams/vanillaImg.png'
 import Categories from '../components/Categories.jsx'
 
+let index=0;
 function Cream({sum,updateSum,setTotal,setContent,selectedItem}){
     function changeValue(event){
         switch (event.target.name) {
@@ -27,8 +28,9 @@ function Cream({sum,updateSum,setTotal,setContent,selectedItem}){
                 itemPrice = document.getElementById('strawberryCream').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="strawberry"]:checked').id}"]`).textContent
-                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cream(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cream(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)),index: index });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    return index++;
                 }
                 else{alert('Empty')}
                 break;
@@ -36,8 +38,9 @@ function Cream({sum,updateSum,setTotal,setContent,selectedItem}){
                 itemPrice = document.getElementById('chocolateCream').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="chocolate"]:checked').id}"]`).textContent
-                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cream(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cream(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)),index: index });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    return index++;
                 }
                 else{alert('Empty')}
                 break;
@@ -45,8 +48,9 @@ function Cream({sum,updateSum,setTotal,setContent,selectedItem}){
                 let itemPrice = document.getElementById('vanillaCream').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="vanilla"]:checked').id}"]`).textContent
-                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cream(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cream(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)),index: index });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    return index++;
                 }
                 else{alert('Empty')}
                 break;

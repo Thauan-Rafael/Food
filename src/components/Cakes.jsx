@@ -4,6 +4,7 @@ import strawberry from '../media/cakes/strawberryImg.png'
 import lemon from '../media/cakes/lemonImg.png'
 import Categories from '../components/Categories.jsx'
 
+let index=0;
 function Cake({sum,updateSum,setTotal,setContent,selectedItem}){
     function changeValue(event){
         switch (event.target.name) {
@@ -27,8 +28,9 @@ function Cake({sum,updateSum,setTotal,setContent,selectedItem}){
                 itemPrice = document.getElementById('chocolateCake').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="chocolate"]:checked').id}"]`).textContent
-                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cake(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cake(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)),index: index });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    return index++;
                 }
                 else{alert('Empty')}
                 break;
@@ -36,8 +38,9 @@ function Cake({sum,updateSum,setTotal,setContent,selectedItem}){
                 itemPrice = document.getElementById('strawberryCake').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="strawberry"]:checked').id}"]`).textContent
-                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cake(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cake(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)),index:index });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    return index++;
                 }
                 else{alert('Empty')}
                 break;
@@ -45,8 +48,9 @@ function Cake({sum,updateSum,setTotal,setContent,selectedItem}){
                 itemPrice = document.getElementById('lemonCake').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="lemon"]:checked').id}"]`).textContent
-                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cake(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cake(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)),index: index });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    return index++;
                 }
                 else{alert('Empty')}
                 break;

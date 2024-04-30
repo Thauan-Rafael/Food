@@ -10,7 +10,6 @@ import Cream from './components/Creams.jsx'
 import Drinks from './components/Drinks.jsx'
 let selectedItem = []
 let cartItems = [];
-let itemQuantities = {}
 function App() {
   let sum = 0;
   const [total, setTotal] = React.useState('0')
@@ -45,7 +44,7 @@ function App() {
   }
   return (
     <>
-      <Header cartItems={cartItems} itemQuantities={itemQuantities} updateSum={updateSum} setTotal={setTotal} total={total} setContent={setContent} changeContent={changeContent} selectedItem={selectedItem}/>
+      <Header cartItems={cartItems} updateSum={updateSum} setTotal={setTotal} total={total} setContent={setContent} changeContent={changeContent} selectedItem={selectedItem}/>
       <Content sum={sum} setTotal={setTotal} content={content} setContent={setContent}/>
     </>
   )

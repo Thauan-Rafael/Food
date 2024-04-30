@@ -4,6 +4,7 @@ import chicken from '../media/hamburgers/chickenImg.png'
 import veggie from '../media/hamburgers/veggieImg.png'
 import Categories from '../components/Categories.jsx'
 
+let index = 0;
 function Hamburger({sum,updateSum,setTotal, setContent,selectedItem}){
     function changeValue(event){
         switch (event.target.name) {
@@ -27,8 +28,8 @@ function Hamburger({sum,updateSum,setTotal, setContent,selectedItem}){
                 itemPrice = document.getElementById('beefHamburger').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="beef"]:checked').id}"]`).textContent
-                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+`(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
-                    updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+`(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)),index: index});                    updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    return index++;
                 }
                 else{alert('Empty')}
                 break;
@@ -36,8 +37,9 @@ function Hamburger({sum,updateSum,setTotal, setContent,selectedItem}){
                 itemPrice = document.getElementById('chickenHamburger').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="chicken"]:checked').id}"]`).textContent
-                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+`(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+`(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)),index: index });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    return index++;
                 }
                 else{alert('Empty')}
                 break;
@@ -45,8 +47,9 @@ function Hamburger({sum,updateSum,setTotal, setContent,selectedItem}){
                 itemPrice = document.getElementById('veggieHamburger').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="veggie"]:checked').id}"]`).textContent
-                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+`(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+`(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)),index: index });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    return index++;
                 }
                 else{alert('Empty')}
                 break;

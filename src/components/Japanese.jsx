@@ -4,6 +4,7 @@ import yakisoba from '../media/japaneseFoods/yakisobaImg.png'
 import gyoza from '../media/japaneseFoods/gyozaImg.png'
 import Categories from '../components/Categories.jsx'
 
+let index = 0;
 function Japanese({sum,updateSum,setTotal,setContent,selectedItem}){
     function changeValue(event){
         switch (event.target.name) {
@@ -27,8 +28,9 @@ function Japanese({sum,updateSum,setTotal,setContent,selectedItem}){
                 itemPrice = document.getElementById('sushi').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="sushi"]:checked').id}"]`).textContent
-                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+`(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+`(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)),index: index });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    return index++;
                 }
                 else{alert('Empty')}
                 break;
@@ -36,8 +38,9 @@ function Japanese({sum,updateSum,setTotal,setContent,selectedItem}){
                 itemPrice = document.getElementById('yakisoba').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="yakisoba"]:checked').id}"]`).textContent
-                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+`(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+`(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)),index: index });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    return index++;
                 }
                 else{alert('Empty')}
                 break;
@@ -45,8 +48,9 @@ function Japanese({sum,updateSum,setTotal,setContent,selectedItem}){
                 itemPrice = document.getElementById('gyoza').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="gyoza"]:checked').id}"]`).textContent
-                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+`(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+`(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)),index: index });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    return index++;
                 }
                 else{alert('Empty')}
                 break;

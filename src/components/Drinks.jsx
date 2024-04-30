@@ -4,6 +4,7 @@ import kiwi from '../media/drinks/kiwiImg.png'
 import banana from '../media/drinks/bananaImg.png'
 import Categories from '../components/Categories.jsx'
 
+let index = 0;
 function Drinks({sum,updateSum,setTotal,setContent,selectedItem}){
     function changeValue(event){
         switch (event.target.name) {
@@ -27,8 +28,9 @@ function Drinks({sum,updateSum,setTotal,setContent,selectedItem}){
                 itemPrice = document.getElementById('strawberryDrink').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="strawberry"]:checked').id}"]`).textContent
-                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cake(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cake(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)),index:index });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    return index++;
                 }
                 else{alert('Empty')}
                 break;
@@ -36,8 +38,9 @@ function Drinks({sum,updateSum,setTotal,setContent,selectedItem}){
                 itemPrice = document.getElementById('kiwiDrink').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="kiwi"]:checked').id}"]`).textContent
-                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cake(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cake(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)),index:index });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    return index++;
                 }
                 else{alert('Empty')}
                 break;
@@ -45,8 +48,9 @@ function Drinks({sum,updateSum,setTotal,setContent,selectedItem}){
                 let itemPrice = document.getElementById('bananaDrink').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="banana"]:checked').id}"]`).textContent
-                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cake(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)) });
+                    selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cake(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)),index:index });
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
+                    return index++;
                 }
                 else{alert('Empty')}
                 break;
