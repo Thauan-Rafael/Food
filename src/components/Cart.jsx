@@ -1,16 +1,33 @@
 import React from 'react'
 function Cart(props){
+    const [reload, setReload] = React.useState(false);
+    React.useEffect(() => {
+        seeItems();
+    }, [reload]);
     seeItems();
-    function seeItems(){
-        props.selectedItem.forEach((item) => {
-            const existingItem = props.cartItems.find(product => product.name === item.name)
-            if(!existingItem){
-                props.cartItems.push({name:item.name,price:item.price,quantity:1,index:item.index})
+    function seeItems(deletedItem){
+        if(props.selectedItem.length > 0){
+            props.selectedItem.forEach((item) => {
+                const existingItem = props.cartItems.find(product => product.name === item.name)
+                if(!existingItem){
+                    props.cartItems.push({name:item.name,price:item.price,quantity:1,index:item.index})
+                }
+                else{
+                    props.cartItems.find(product => product.name === item.name).quantity = props.selectedItem.filter(product => product.name === item.name).length;
+                }
+            });
+        }
+        else{
+            let deletedIndex = props.cartItems.findIndex(item => item.name === deletedItem);
+            if(deletedIndex != -1){
+                props.cartItems.splice(deletedIndex,1)
+                console.log(props.cartItems)
+                setReload(!reload)
             }
             else{
-                props.cartItems.find(product => product.name === item.name).quantity = props.selectedItem.filter(product => product.name === item.name).length;
+                return;
             }
-        });
+        }
     }
     function changeQuantity(name,price,operation){
         let itemIndex = props.cartItems.findIndex(item => item.name === name);
@@ -22,8 +39,12 @@ function Cart(props){
                 props.updateSum(price*(-1))
                 for(let i = props.selectedItem.filter(product => product.name === name).length-1; i>=0;i--){
                     if(name == props.selectedItem.find(product=>product.name == name).name){
-                        props.selectedItem.splice(i,1);
-                        document.getElementById(`quantity${itemIndex}`).textContent = props.selectedItem.filter(product => product.name === name).length;
+                        let selectedIndex = props.selectedItem.findIndex(product => product.name === name);
+                        if (selectedIndex !== -1) {
+                            props.selectedItem.splice(selectedIndex, 1);
+                            document.getElementById(`quantity${itemIndex}`).textContent = props.selectedItem.filter(product => product.name === name).length;
+                        }
+                        seeItems()
                         return;
                     }
                 }
@@ -33,6 +54,21 @@ function Cart(props){
             props.selectedItem.push({name:name,price:price,index:props.selectedItem.filter(product => product.name === name).length})
             props.updateSum(price)
             document.getElementById(`quantity${itemIndex}`).textContent = props.selectedItem.filter(product => product.name === name).length
+            seeItems()
+        }
+    }
+    function deleteItem(name,price){
+        let itemIndex = props.cartItems.findIndex(item => item.name === name);
+        let itemsToRemove = props.selectedItem.filter(product => product.name === name);
+        let numItemsToRemove = itemsToRemove.length;
+        props.updateSum(price * -numItemsToRemove);
+        for (let i = numItemsToRemove - 1; i >= 0; i--) {
+            let selectedIndex = props.selectedItem.findIndex(product => product.name === name);
+            if (selectedIndex !== -1) {
+                props.selectedItem.splice(selectedIndex, 1);
+                document.getElementById(`quantity${itemIndex}`).textContent = props.selectedItem.filter(product => product.name === name).length;
+                seeItems(name);
+            }
         }
     }
 
@@ -49,7 +85,7 @@ function Cart(props){
                                 <h3 id={`quantity${index}`}>{item.quantity}</h3>
                                 <h3 onClick={() => changeQuantity(item.name,item.price,'+')}>+</h3>
                             </div>
-                            <h3>X</h3>
+                            <h3 onClick={() => deleteItem(item.name,item.price)}>X</h3>
                         </div>
                     ))}   
                 </div>
