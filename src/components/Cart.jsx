@@ -5,7 +5,7 @@ function Cart(props){
         seeItems();
     }, [reload]);
     seeItems();
-    function seeItems(deletedItem){
+    function seeItems(){
         if(props.selectedItem.length > 0){
             props.selectedItem.forEach((item) => {
                 const existingItem = props.cartItems.find(product => product.name === item.name)
@@ -16,17 +16,6 @@ function Cart(props){
                     props.cartItems.find(product => product.name === item.name).quantity = props.selectedItem.filter(product => product.name === item.name).length;
                 }
             });
-        }
-        else{
-            let deletedIndex = props.cartItems.findIndex(item => item.name === deletedItem);
-            if(deletedIndex != -1){
-                props.cartItems.splice(deletedIndex,1)
-                console.log(props.cartItems)
-                setReload(!reload)
-            }
-            else{
-                return;
-            }
         }
     }
     function changeQuantity(name,price,operation){
@@ -43,6 +32,7 @@ function Cart(props){
                         if (selectedIndex !== -1) {
                             props.selectedItem.splice(selectedIndex, 1);
                             document.getElementById(`quantity${itemIndex}`).textContent = props.selectedItem.filter(product => product.name === name).length;
+                            document.getElementById(`totalProduct${itemIndex}`).textContent = '$'+price * props.selectedItem.filter(product => product.name === name).length
                         }
                         seeItems()
                         return;
@@ -54,6 +44,7 @@ function Cart(props){
             props.selectedItem.push({name:name,price:price,index:props.selectedItem.filter(product => product.name === name).length})
             props.updateSum(price)
             document.getElementById(`quantity${itemIndex}`).textContent = props.selectedItem.filter(product => product.name === name).length
+            document.getElementById(`totalProduct${itemIndex}`).textContent = '$'+price * props.selectedItem.filter(product => product.name === name).length
             seeItems()
         }
     }
@@ -64,10 +55,12 @@ function Cart(props){
         props.updateSum(price * -numItemsToRemove);
         for (let i = numItemsToRemove - 1; i >= 0; i--) {
             let selectedIndex = props.selectedItem.findIndex(product => product.name === name);
+            let cartIndex = props.cartItems.findIndex(product => product.name == name)
             if (selectedIndex !== -1) {
                 props.selectedItem.splice(selectedIndex, 1);
+                props.cartItems.splice(cartIndex, 1)
                 document.getElementById(`quantity${itemIndex}`).textContent = props.selectedItem.filter(product => product.name === name).length;
-                seeItems(name);
+                setReload(!reload)
             }
         }
     }
@@ -84,6 +77,7 @@ function Cart(props){
                                 <h3 onClick={() => changeQuantity(item.name,item.price,'-')}>-</h3>
                                 <h3 id={`quantity${index}`}>{item.quantity}</h3>
                                 <h3 onClick={() => changeQuantity(item.name,item.price,'+')}>+</h3>
+                                <h3 id={`totalProduct${index}`}>${item.quantity * item.price}</h3>
                             </div>
                             <h3 onClick={() => deleteItem(item.name,item.price)}>X</h3>
                         </div>

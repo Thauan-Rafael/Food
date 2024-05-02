@@ -52,14 +52,15 @@
 }
 .categories-column .card-body{
   border-top: 2px solid black;
-  padding: 3% 0 3% 0;
+  padding: 0;
   display: flex;
   align-items: center;
+  height: 40vh;
 }
 .card-image{
   width: 100%;
   margin: auto;
-  height: 200px;
+  height: 35vh;
 }
 #japaneseCard .card-image{
   padding: 0 2% 0 2%;
@@ -79,7 +80,7 @@
   border-radius: 10vw;
   border: 2px solid black;
   color: #fff;
-  font-size: 1.5vw;
+  font-size: 100%;
 }
 .itemOptions{
   display: flex;
@@ -111,17 +112,18 @@
   text-align: center;
 }
 .itemOptions .card-footer h3{
-  font-size: 5vh;
+  font-size: 1.5rem;
 }
 .buyItem{
   display: grid;
   gap: 1%;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 .buyItem .btn {
   border-radius: 10vw;
   margin: auto;
-  font-size: 3vh;
+  font-size: 0.8rem;
+  padding: 3%;
 }
 .cartBtn:hover, .sizes:hover, #categoriesSelect button:hover{
   transform: scale(1.1);
@@ -145,12 +147,12 @@
   width: 80%;
   margin: auto;
   display: grid;
-  grid-template-columns: 6fr 1fr 1fr;
+  grid-template-columns: 7fr 2fr 1fr 1fr;
   justify-content: center;
-  gap: 5%;
+  gap: 3%;
 }
 #cartItem h3{
-  font-size: 2.1vw;
+  font-size: 100%;
 }
 #quantity{
   display: flex;
@@ -321,6 +323,7 @@
   }
   .buyItem{
     display: grid;
+    grid-template-rows: 1fr;
     grid-template-columns: 2fr 1fr;
     width: 100%;
   }
@@ -394,7 +397,7 @@
   }
   #categoriesSelect .btn{
     width: 15vw;
-    font-size: 90%;
+    font-size: 60%;
   }
   .itemOptions{
     min-width: 100vw;
