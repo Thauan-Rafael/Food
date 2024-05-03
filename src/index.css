@@ -147,15 +147,16 @@
 }
 .cartList h1{
   text-align: center;
+  margin-bottom: 3%;
 }
 #cartItens{
   display: grid;
 }
 #cartItem{
-  width: 80%;
+  width: 100%;
   margin: auto;
   display: grid;
-  grid-template-columns: 7fr 2fr 1fr 1fr;
+  grid-template-columns: 7fr 2fr 2fr 1fr;
   justify-content: center;
   gap: 3%;
 }
@@ -171,6 +172,9 @@
   border-radius: 20vh;
   width: 15%;
   margin: 2% auto auto auto;
+}
+#cartTotal{
+  margin-top: 3%;
 }
 #confirmButton, #closeButton{
   background-color: #e46e0d;
@@ -393,13 +397,26 @@
     align-items: center;
   }
   .card-header h3{
-    font-size: 3.5vh;
+    font-size: 4.5vh;
+    font-weight: 500;
   }
   .categories-column .card-body{
     height: 70%;
   }
   #drinkCard .card-image{
     padding: 1.5%;
+  }
+  .itemOptions .card-footer h3{
+    font-size: 4.5vh;
+    font-weight: 500;
+  }
+  .buyItem .btn{
+    font-size: 2.5vh;
+    font-weight: 300;
+  }
+  .cartBtn{
+    font-size: 3vh !important;
+    padding: 1% 3% 1% 3% !important;
   }
 }
 @media screen and (max-height: 576px) and (orientation: landscape){

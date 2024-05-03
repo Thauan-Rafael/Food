@@ -17,6 +17,7 @@ function App() {
   function updateSum(amount){
     sum = sum + amount;
     setTotal(sum)
+    return sum
   }
   function changeContent(value) {
       switch (value) {
