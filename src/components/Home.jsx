@@ -12,7 +12,7 @@ function Home({changeContent}){
             <div className="row">
                 <OptionCard name='Pizza' id='pizzaCard' img={pizza}/>  
                 <OptionCard name='Hamburger' id='hamburgerCard' img={hamburger}/>  
-                <OptionCard name='Japanese Food' id='japaneseCard' img={japaneseFood}/>  
+                <OptionCard name='Japanese' id='japaneseCard' img={japaneseFood}/>  
                 <OptionCard name='Cakes' id='cakeCard' img={cake}/>  
                 <OptionCard name='Ice Cream' id='iceCreamCard' img={iceCream}/>  
                 <OptionCard name='Drinks' id='drinkCard' img={drink}/>  

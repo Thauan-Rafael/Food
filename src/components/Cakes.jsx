@@ -62,7 +62,7 @@ function Cake({sum,updateSum,setTotal,setContent,selectedItem}){
     return(
         <>
             <div className='itemPage'>
-                <Categories btn1='Pizza' btn2='Hamburger' btn3='Japanese Food' btn4='Ice Cream' btn5='Drinks' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} selectedItem={selectedItem}/>
+                <Categories btn1='Pizza' btn2='Hamburger' btn3='Japanese' btn4='Ice Cream' btn5='Drinks' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} selectedItem={selectedItem}/>
                 <div id='cakeCards' className='itemOptions container'>
                     <CakeCard name='Chocolate' img={chocolate} price={18.00}/>
                     <CakeCard name='Strawberry' img={strawberry} price={20.00}/>

@@ -23,7 +23,7 @@ function Categories(props){
         else if(event.target.textContent == 'Hamburger'){
             setContent(<Hamburger sum={props.sum} setTotal={setTotal} setContent={setContent} updateSum={props.updateSum} selectedItem={props.selectedItem}/>)
         }
-        else if(event.target.textContent == 'Japanese Food'){
+        else if(event.target.textContent == 'Japanese'){
             setContent(<Japanese sum={props.sum} setTotal={setTotal} setContent={setContent} updateSum={props.updateSum} selectedItem={props.selectedItem}/>)
         }
         else if(event.target.textContent == 'Cakes'){

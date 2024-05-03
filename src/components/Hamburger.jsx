@@ -61,7 +61,7 @@ function Hamburger({sum,updateSum,setTotal, setContent,selectedItem}){
     return(
         <>
             <div className='itemPage'>
-                <Categories btn1='Pizza' btn2='Japanese Food' btn3='Cakes' btn4='Ice Cream' btn5='Drinks' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} selectedItem={selectedItem}/>
+                <Categories btn1='Pizza' btn2='Japanese' btn3='Cakes' btn4='Ice Cream' btn5='Drinks' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} selectedItem={selectedItem}/>
                 <div id='hamburgerCards' className='itemOptions container'>
                     <HamburgerCard name='Beef' img={beef} price={3.00}/>
                     <HamburgerCard name='Chicken' img={chicken} price={3.50}/>

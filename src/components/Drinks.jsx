@@ -62,7 +62,7 @@ function Drinks({sum,updateSum,setTotal,setContent,selectedItem}){
     return(
         <>
             <div className='itemPage'>
-                <Categories btn1='Pizza' btn2='Hamburger' btn3='Japanese Food' btn4='Cakes' btn5='Ice Cream' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} selectedItem={selectedItem}/>
+                <Categories btn1='Pizza' btn2='Hamburger' btn3='Japanese' btn4='Cakes' btn5='Ice Cream' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} selectedItem={selectedItem}/>
                 <div id='drinkCards' className='itemOptions container'>
                     <DrinksCard name='Strawberry' img={strawberry} price={2.00}/>
                     <DrinksCard name='Kiwi' img={kiwi} price={2.00}/>

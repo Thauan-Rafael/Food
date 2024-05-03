@@ -62,7 +62,7 @@ function Pizza({sum,updateSum,setTotal,setContent,selectedItem}){
     return(
         <>
             <div className='itemPage'>
-                <Categories btn1='Hamburger' btn2='Japanese Food' btn3='Cakes' btn4='Ice Cream' btn5='Drinks' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} selectedItem={selectedItem}/>
+                <Categories btn1='Hamburger' btn2='Japanese' btn3='Cakes' btn4='Ice Cream' btn5='Drinks' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} selectedItem={selectedItem}/>
                 <div id='pizzaCards' className='itemOptions container'>
                     <PizzaCard name='Pepperoni' img={pepperoni} price={10.00}/>
                     <PizzaCard name='Margherita' img={margherita} price={9.00}/>

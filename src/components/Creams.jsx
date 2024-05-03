@@ -62,7 +62,7 @@ function Cream({sum,updateSum,setTotal,setContent,selectedItem}){
     return(
         <>
             <div className='itemPage'>
-                <Categories btn1='Pizza' btn2='Hamburger' btn3='Japanese Food' btn4='Cakes' btn5='Drinks' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} selectedItem={selectedItem}/>
+                <Categories btn1='Pizza' btn2='Hamburger' btn3='Japanese' btn4='Cakes' btn5='Drinks' sum={sum} updateSum={updateSum} setTotal={setTotal} setContent={setContent} selectedItem={selectedItem}/>
                 <div id='creamCards' className='itemOptions container'>
                     <CreamCard name='Strawberry' img={strawberry} price={3.00}/>
                     <CreamCard name='Chocolate' img={chocolate} price={3.00}/>
