@@ -6,13 +6,17 @@
   display: grid;
   grid-template-rows: auto 1fr;
   gap: 1%;
+  background-color: #706d6d;
 }
 #header{
   padding: 0.5% 2% 0.5% 2%;
-  background-color: #e46e0d;
+  background-color: #252424;
 }
 #header i, #header a{
-  color: #fff;
+  color: #e46e0d;
+}
+#header i:hover, #header a:hover{
+  transform: scale(1.05);
 }
 .navbar-brand{
   align-items: center;
@@ -33,9 +37,11 @@
   display: grid;
   align-items: center;
   padding: 0 2% 0 2%;
+  background-color: #706d6d;
 }
 .row{
   height: 100%;
+  background-color: #706d6d;
 }
 .categories-column{
   align-items: center;
@@ -50,7 +56,12 @@
 .categories-column .card:hover{
   transform: scale(1.05);
 }
+.categories-column .card-header{
+  background-color: #252424;
+  color: #e46e0d;
+}
 .categories-column .card-body{
+  background-color: #ccc7c7;
   border-top: 2px solid black;
   padding: 0;
   display: flex;
@@ -80,10 +91,17 @@
 #categoriesSelect .btn{
   border-radius: 10vw;
   border: 2px solid black;
-  color: #fff;
+  background-color: #252424;
+  color: #e46e0d;
   font-size: 3vh;
   font-weight: 500;
   width: 8vw;
+}
+#categoriesSelect .btn:hover{
+  transform: scale(1.05);
+  border: 2px solid black;
+  background-color: #252424;
+  color: #e46e0d;
 }
 .itemOptions{
   display: flex;
@@ -91,6 +109,7 @@
   justify-content: center;
   gap: 3%;
   padding: 0;
+  background-color: #706d6d;
 }
 .itemOptions .card{
   height: 80vh;
@@ -104,6 +123,7 @@
   display: grid;
   align-items: center;
   padding: 0;
+  background-color: #ccc7c7;
 }
 .itemOptions .card-image{
   height: 52vh;
@@ -114,6 +134,8 @@
   border-top: 2px solid black;
   text-align: center;
   padding: 2% 1% 2% 1%;
+  background-color: #252424;
+  color: #e46e0d;
 }
 .itemOptions .card-footer h3{
   display: flex;
@@ -132,11 +154,35 @@
   font-size: 0.8rem;
   padding: 2%;
   height: 6vh;
+  color: #e46e0d;
+  border-color: #e46e0d;
 }
-.cartBtn:hover, .sizes:hover, #categoriesSelect button:hover{
+.buyItem .btn:hover{
+  color: #e46e0d;
+  border-color: #e46e0d;
+}
+.buyItem input:checked+.btn{
+  color: #252424;
+  background-color: #e46e0d;
+  border-color: #252424;
+}
+.sizes:hover{
+  transform: scale(1.015);
+}
+.cartBtn{
+  background-color: #e46e0d;
+  color: #252424 !important;
+  border-color: #252424 !important;
+}
+.cartBtn:hover{
   transform: scale(1.1);
+  background-color: #e46e0d;
+  color: #252424 !important;
+  border-color: #252424 !important;
 }
 .cartList{
+  background-color: #252424;
+  color: #e46e0d;
   display: grid;
   padding: 2.5%;
   gap: 1.5%;
@@ -172,6 +218,15 @@
   border-radius: 20vh;
   width: 15%;
   margin: 2% auto auto auto;
+  background-color: #e46e0d;
+  color: #252424;
+  border-color: #252424;
+}
+.cartList button:hover{
+  transform: scale(1.1);
+  background-color: #e46e0d;
+  color: #252424;
+  border-color: #252424;
 }
 #cartTotal{
   margin-top: 3%;
@@ -460,9 +515,6 @@
   }
   .itemOptions .card-footer h3{
     font-size: 1rem;
-  }
-  .buyItem{
-    
   }
   .itemOptions .btn{
     font-size: 60%;
