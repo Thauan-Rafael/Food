@@ -5,12 +5,12 @@
   min-height:100vh;
   display: grid;
   grid-template-rows: auto 1fr;
-  gap: 1%;
   background-color: #706d6d;
 }
 #header{
   padding: 0.5% 2% 0.5% 2%;
   background-color: #252424;
+  margin-bottom: 1%;
 }
 #header i, #header a{
   color: #e46e0d;
@@ -51,18 +51,18 @@
 }
 .categories-column .card{
   height: 100%;
-  border: 2px solid black;
+  border: 1px solid #252424;
 }
 .categories-column .card:hover{
   transform: scale(1.05);
 }
 .categories-column .card-header{
   background-color: #252424;
+  border-color: 2px solid #252424;
   color: #e46e0d;
 }
 .categories-column .card-body{
   background-color: #ccc7c7;
-  border-top: 2px solid black;
   padding: 0;
   display: flex;
   align-items: center;
@@ -71,7 +71,7 @@
 .card-image{
   width: 100%;
   margin: auto;
-  height: 29vh;
+  height: 28vh;
 }
 #japaneseCard .card-image{
   padding: 0 2% 0 2%;
@@ -255,7 +255,10 @@
     margin: 0;
   }
   #categories{
-    width: 90%;
+    width: 100%;
+  }
+  .row{
+    margin: auto;
   }
   .categories-column{
     margin-bottom: 4%;
@@ -477,6 +480,7 @@
 @media screen and (max-height: 576px) and (orientation: landscape){
   .itemPage{
     grid-template-rows: 0.5fr 9fr;
+    height: 85vh;
   }
   #categoriesSelect{
     height: 10vh;
