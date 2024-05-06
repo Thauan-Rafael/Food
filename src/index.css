@@ -228,12 +228,26 @@
   color: #252424;
   border-color: #252424;
 }
+.cartList button:active{
+  background-color: #e46e0d !important;
+  color: #252424 !important;
+  border-color: #252424 !important;
+}
 #cartTotal{
   margin-top: 3%;
+}
+.modal-content{
+  background-color: #252424;
+  color: #e46e0d;
 }
 #confirmButton, #closeButton{
   background-color: #e46e0d;
   border-color: #e46e0d;
+  color: #252424;
+}
+#noButton{
+  background-color: #706d6d;
+  color: #252424;
 }
 @media screen and (max-width:576px) and (orientation:portrait){
   #root{

@@ -98,9 +98,9 @@ function Cart(props){
                         <h1 className="modal-title fs-5" id="staticBackdropLabel">Confirmation</h1>
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div className="modal-body">The total is {document.getElementById('totalPrice').textContent}, finish the purchase?</div>
+                    <div className="modal-body">{cartTotal}, finish the purchase?</div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                        <button id='noButton' type="button" className="btn btn-secondary" data-bs-dismiss="modal">No</button>
                         <button id='confirmButton' type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmationModal">Yes</button>
                     </div>
                     </div>
