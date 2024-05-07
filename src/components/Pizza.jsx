@@ -3,7 +3,7 @@ import pepperoni from '../media/pizzas/pepperoniImg.png'
 import margherita from '../media/pizzas/margheritaImg.png'
 import cheese from '../media/pizzas/cheeseImg.png'
 import Categories from '../components/Categories.jsx'
-
+import { toast } from 'react-toastify'
 let index = 0;
 function Pizza({sum,updateSum,setTotal,setContent,selectedItem}){
     function changeValue(event){
@@ -32,7 +32,10 @@ function Pizza({sum,updateSum,setTotal,setContent,selectedItem}){
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     return index++;
                 }
-                else{alert('Empty')}
+                else{
+                    toast('Select a item!', {position: "bottom-right",hideProgressBar: true,closeButton: false,
+                    autoClose: 5000,closeOnClick: true,pauseOnHover: true,draggable: true,theme: "dark",});
+                }
                 break;
             case 'addMargherita':
                 itemPrice = document.getElementById('margheritaPizza').textContent;
@@ -42,7 +45,10 @@ function Pizza({sum,updateSum,setTotal,setContent,selectedItem}){
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     return index++;
                 }
-                else{alert('Empty')}
+                else{
+                    toast('Select a item!', {position: "bottom-right",hideProgressBar: true,closeButton: false,
+                    autoClose: 5000,closeOnClick: true,pauseOnHover: true,draggable: true,theme: "dark",});
+                }
                 break;
             case 'addCheese':
                 let itemPrice = document.getElementById('cheesePizza').textContent;
@@ -52,7 +58,10 @@ function Pizza({sum,updateSum,setTotal,setContent,selectedItem}){
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     return index++;
                 }
-                else{alert('Empty')}
+                else{
+                    toast('Select a item!', {position: "bottom-right",hideProgressBar: true,closeButton: false,
+                    autoClose: 5000,closeOnClick: true,pauseOnHover: true,draggable: true,theme: "dark",});
+                }
                 break;
                 
             default:

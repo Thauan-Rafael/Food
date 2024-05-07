@@ -3,6 +3,7 @@ import chocolate from '../media/cakes/chocolateImg.png'
 import strawberry from '../media/cakes/strawberryImg.png'
 import lemon from '../media/cakes/lemonImg.png'
 import Categories from '../components/Categories.jsx'
+import { toast } from 'react-toastify'
 
 let index=0;
 function Cake({sum,updateSum,setTotal,setContent,selectedItem}){
@@ -32,7 +33,10 @@ function Cake({sum,updateSum,setTotal,setContent,selectedItem}){
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     return index++;
                 }
-                else{alert('Empty')}
+                else{
+                    toast('Select a item!', {position: "bottom-right",hideProgressBar: true,closeButton: false,
+                    autoClose: 5000,closeOnClick: true,pauseOnHover: true,draggable: true,theme: "dark",});
+                }
                 break;
             case 'addStrawberry':
                 itemPrice = document.getElementById('strawberryCake').textContent;
@@ -42,7 +46,10 @@ function Cake({sum,updateSum,setTotal,setContent,selectedItem}){
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     return index++;
                 }
-                else{alert('Empty')}
+                else{
+                    toast('Select a item!', {position: "bottom-right",hideProgressBar: true,closeButton: false,
+                    autoClose: 5000,closeOnClick: true,pauseOnHover: true,draggable: true,theme: "dark",});
+                }
                 break;
             case 'addLemon':
                 itemPrice = document.getElementById('lemonCake').textContent;
@@ -52,7 +59,10 @@ function Cake({sum,updateSum,setTotal,setContent,selectedItem}){
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     return index++;
                 }
-                else{alert('Empty')}
+                else{
+                    toast('Select a item!', {position: "bottom-right",hideProgressBar: true,closeButton: false,
+                    autoClose: 5000,closeOnClick: true,pauseOnHover: true,draggable: true,theme: "dark",});
+                }
                 break;
                 
             default:

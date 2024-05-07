@@ -8,6 +8,8 @@ import Japanese from './components/Japanese.jsx'
 import Cake from './components/Cakes.jsx'
 import Cream from './components/Creams.jsx'
 import Drinks from './components/Drinks.jsx'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 let selectedItem = []
 let cartItems = [];
 function App() {
@@ -47,6 +49,7 @@ function App() {
     <>
       <Header cartItems={cartItems} updateSum={updateSum} setTotal={setTotal} total={total} setContent={setContent} changeContent={changeContent} selectedItem={selectedItem}/>
       <Content sum={sum} setTotal={setTotal} content={content} setContent={setContent}/>
+      <ToastContainer/>
     </>
   )
 }

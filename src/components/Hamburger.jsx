@@ -3,6 +3,7 @@ import beef from '../media/hamburgers/beefImg.png'
 import chicken from '../media/hamburgers/chickenImg.png'
 import veggie from '../media/hamburgers/veggieImg.png'
 import Categories from '../components/Categories.jsx'
+import { toast } from 'react-toastify'
 
 let index = 0;
 function Hamburger({sum,updateSum,setTotal, setContent,selectedItem}){
@@ -31,7 +32,10 @@ function Hamburger({sum,updateSum,setTotal, setContent,selectedItem}){
                     selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+`(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)),index: index});                    updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     return index++;
                 }
-                else{alert('Empty')}
+                else{
+                    toast('Select a item!', {position: "bottom-right",hideProgressBar: true,closeButton: false,
+                    autoClose: 5000,closeOnClick: true,pauseOnHover: true,draggable: true,theme: "dark",});
+                }
                 break;
             case 'addChicken':
                 itemPrice = document.getElementById('chickenHamburger').textContent;
@@ -41,7 +45,10 @@ function Hamburger({sum,updateSum,setTotal, setContent,selectedItem}){
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     return index++;
                 }
-                else{alert('Empty')}
+                else{
+                    toast('Select a item!', {position: "bottom-right",hideProgressBar: true,closeButton: false,
+                    autoClose: 5000,closeOnClick: true,pauseOnHover: true,draggable: true,theme: "dark",});
+                }
                 break;
             case 'addVeggie':
                 itemPrice = document.getElementById('veggieHamburger').textContent;
@@ -51,7 +58,10 @@ function Hamburger({sum,updateSum,setTotal, setContent,selectedItem}){
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     return index++;
                 }
-                else{alert('Empty')}
+                else{
+                    toast('Select a item!', {position: "bottom-right",hideProgressBar: true,closeButton: false,
+                    autoClose: 5000,closeOnClick: true,pauseOnHover: true,draggable: true,theme: "dark",});
+                }
                 break;
                 
             default:
