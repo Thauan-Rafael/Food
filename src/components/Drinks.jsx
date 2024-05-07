@@ -52,7 +52,7 @@ function Drinks({sum,updateSum,setTotal,setContent,selectedItem}){
                 }
                 break;
             case 'addBanana':
-                let itemPrice = document.getElementById('bananaDrink').textContent;
+                itemPrice = document.getElementById('bananaDrink').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="banana"]:checked').id}"]`).textContent
                     selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Cake(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)),index:index });

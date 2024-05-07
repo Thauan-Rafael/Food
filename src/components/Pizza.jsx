@@ -51,7 +51,7 @@ function Pizza({sum,updateSum,setTotal,setContent,selectedItem}){
                 }
                 break;
             case 'addCheese':
-                let itemPrice = document.getElementById('cheesePizza').textContent;
+                itemPrice = document.getElementById('cheesePizza').textContent;
                 if(itemPrice.includes('$')){
                     let itemSize = document.querySelector(`label[for="${document.querySelector('input[name="cheese"]:checked').id}"]`).textContent
                     selectedItem.push({ name: itemPrice.substring(0, itemPrice.indexOf(' - $'))+` Pizza(${itemSize})`, price: parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)), index: index });
