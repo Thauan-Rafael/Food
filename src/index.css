@@ -249,6 +249,16 @@
   background-color: #706d6d;
   color: #252424;
 }
+.btn-close{
+  background-color: #e46e0d;
+  opacity: 1;
+}
+.Toastify__toast{
+  color: #e46e0d;
+  border: 2px solid #e46e0d;
+  border-radius: 10vw;
+  text-align: center;
+}
 @media screen and (max-width:576px) and (orientation:portrait){
   #root{
     gap: 1%;

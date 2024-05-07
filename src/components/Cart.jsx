@@ -1,4 +1,5 @@
 import React from 'react'
+import { toast } from 'react-toastify'
 function Cart(props){
     const [reload, setReload] = React.useState(false);
     const [cartTotal, setCartTotal] = React.useState(`Total: ${document.getElementById('totalPrice').textContent}`);
@@ -23,7 +24,8 @@ function Cart(props){
         let itemIndex = props.cartItems.findIndex(item => item.name === name);
         if(operation == '-'){
             if(props.selectedItem.filter(product => product.name === name).length == 1){
-                alert('Only have one')
+                toast('Only have one!', {position: "bottom-right",hideProgressBar: true,closeButton: false,
+                autoClose: 5000,closeOnClick: true,pauseOnHover: true,draggable: true,theme: "dark",});
             }
             else{
                 let returnedValue = props.updateSum(price*(-1))
@@ -37,7 +39,6 @@ function Cart(props){
                         }
                         seeItems()
                         setCartTotal(`Total: $${returnedValue}`)
-                        //document.getElementById('cartTotal').textContent = `Total: $${returnedValue}`
                         return;
                     }
                 }
@@ -50,7 +51,6 @@ function Cart(props){
             document.getElementById(`totalProduct${itemIndex}`).textContent = '$'+price * props.selectedItem.filter(product => product.name === name).length
             seeItems()
             setCartTotal(`Total: $${returnedValue}`)
-            //document.getElementById('cartTotal').textContent = `Total: $${returnedValue}`
         }
     }
     function deleteItem(name,price){
@@ -66,9 +66,16 @@ function Cart(props){
                 setReload(!reload)
             }
         }
-        //document.getElementById('cartTotal').textContent = `Total: $${returnedValue}`
         setCartTotal(`Total: $${returnedValue}`)
-        //console.log(document.getElementById('cartTotal').textContent)
+    }
+    function openModal(){
+        if(cartTotal == 'Total: $0'){
+            toast('The cart is empty!', {position: "bottom-right",hideProgressBar: true,closeButton: false,
+            autoClose: 5000,closeOnClick: true,pauseOnHover: true,draggable: true,theme: "dark",});
+            return;
+        }
+        const modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
+        modal.show();
     }
     return(
         <>
@@ -89,7 +96,7 @@ function Cart(props){
                     ))}   
                 </div>
                 <h2 id='cartTotal'>{props.cartItems.length > 0 ? cartTotal : ''}</h2>
-                <button className='btn btn-success' data-bs-toggle="modal" data-bs-target="#staticBackdrop">Buy</button>
+                <button className='btn btn-success' onClick={openModal}>Buy</button>
             </div>
             <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered">
@@ -117,7 +124,7 @@ function Cart(props){
                         Thanks for buying
                     </div>
                     <div className="modal-footer">
-                        <button id='closeButton' className="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Close</button>
+                        <button id='closeButton' className="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Close</button>
                     </div>
                     </div>
                 </div>

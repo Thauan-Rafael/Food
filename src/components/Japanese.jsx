@@ -3,6 +3,7 @@ import sushi from '../media/japaneseFoods/sushiImg.png'
 import yakisoba from '../media/japaneseFoods/yakisobaImg.png'
 import gyoza from '../media/japaneseFoods/gyozaImg.png'
 import Categories from '../components/Categories.jsx'
+import { toast } from 'react-toastify'
 
 let index = 0;
 function Japanese({sum,updateSum,setTotal,setContent,selectedItem}){
@@ -32,7 +33,10 @@ function Japanese({sum,updateSum,setTotal,setContent,selectedItem}){
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     return index++;
                 }
-                else{alert('Empty')}
+                else{
+                    toast('Select a item!', {position: "bottom-right",hideProgressBar: true,closeButton: false,
+                    autoClose: 5000,closeOnClick: true,pauseOnHover: true,draggable: true,theme: "dark",});
+                }
                 break;
             case 'addYakisoba':
                 itemPrice = document.getElementById('yakisoba').textContent;
@@ -42,7 +46,10 @@ function Japanese({sum,updateSum,setTotal,setContent,selectedItem}){
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     return index++;
                 }
-                else{alert('Empty')}
+                else{
+                    toast('Select a item!', {position: "bottom-right",hideProgressBar: true,closeButton: false,
+                    autoClose: 5000,closeOnClick: true,pauseOnHover: true,draggable: true,theme: "dark",});
+                }
                 break;
             case 'addGyoza':
                 itemPrice = document.getElementById('gyoza').textContent;
@@ -52,7 +59,10 @@ function Japanese({sum,updateSum,setTotal,setContent,selectedItem}){
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     return index++;
                 }
-                else{alert('Empty')}
+                else{
+                    toast('Select a item!', {position: "bottom-right",hideProgressBar: true,closeButton: false,
+                    autoClose: 5000,closeOnClick: true,pauseOnHover: true,draggable: true,theme: "dark",});
+                }
                 break;
                 
             default:

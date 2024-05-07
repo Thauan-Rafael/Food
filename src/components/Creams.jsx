@@ -3,6 +3,7 @@ import strawberry from '../media/iceCreams/strawberryImg.png'
 import chocolate from '../media/iceCreams/chocolateImg.png'
 import vanilla from '../media/iceCreams/vanillaImg.png'
 import Categories from '../components/Categories.jsx'
+import { toast } from 'react-toastify'
 
 let index=0;
 function Cream({sum,updateSum,setTotal,setContent,selectedItem}){
@@ -32,7 +33,10 @@ function Cream({sum,updateSum,setTotal,setContent,selectedItem}){
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     return index++;
                 }
-                else{alert('Empty')}
+                else{
+                    toast('Select a item!', {position: "bottom-right",hideProgressBar: true,closeButton: false,
+                    autoClose: 5000,closeOnClick: true,pauseOnHover: true,draggable: true,theme: "dark",});
+                }
                 break;
             case 'addChocolate':
                 itemPrice = document.getElementById('chocolateCream').textContent;
@@ -42,7 +46,10 @@ function Cream({sum,updateSum,setTotal,setContent,selectedItem}){
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     return index++;
                 }
-                else{alert('Empty')}
+                else{
+                    toast('Select a item!', {position: "bottom-right",hideProgressBar: true,closeButton: false,
+                    autoClose: 5000,closeOnClick: true,pauseOnHover: true,draggable: true,theme: "dark",});
+                }
                 break;
             case 'addVanilla':
                 let itemPrice = document.getElementById('vanillaCream').textContent;
@@ -52,7 +59,9 @@ function Cream({sum,updateSum,setTotal,setContent,selectedItem}){
                     updateSum(parseFloat(itemPrice.substring(itemPrice.indexOf('$')+1)))
                     return index++;
                 }
-                else{alert('Empty')}
+                else{
+                toast('Select a item!', {position: "bottom-right",hideProgressBar: true,closeButton: false,
+                    autoClose: 5000,closeOnClick: true,pauseOnHover: true,draggable: true,theme: "dark",});}
                 break;
                 
             default:
